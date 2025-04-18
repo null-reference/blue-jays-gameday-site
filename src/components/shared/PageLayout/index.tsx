@@ -8,7 +8,14 @@ interface PageLayoutProps {
 
 export default async function PageLayout({ children }: Readonly<PageLayoutProps>) {
   return (
-    <Stack alignItems="center" height="100%" paddingX={3}>
+    <Stack
+      alignItems="center"
+      width="100%"
+      maxWidth="800px"
+      height="100%"
+      overflow="hidden"
+      paddingX={1}
+    >
       <BlueJaysLogo />
       <Page>{children}</Page>
     </Stack>

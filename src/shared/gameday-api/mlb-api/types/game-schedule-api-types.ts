@@ -77,7 +77,6 @@ export enum IfNecessaryDescription {
 export enum SeriesDescription {
   RegularSeason = 'Regular Season',
   SpringTraining = 'Spring Training',
-  // TODO: sd - probably need post season here
 }
 
 export interface Status {

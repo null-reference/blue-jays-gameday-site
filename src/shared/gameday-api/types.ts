@@ -95,7 +95,10 @@ interface PlayerSeasonStats {
   stolenBases: number;
   caughtStealing: number;
   pickoffs: number;
-  stolenBasePercentage: number;
+  // TODO: sd - gameday - this REALLY should not be nullable
+  //       but the data that comes back from the api has it nullable...
+  //       how is it being saved as null in gameday app?
+  stolenBasePercentage: number | null;
 }
 
 interface GameLineupStatsBatter {
