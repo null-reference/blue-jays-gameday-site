@@ -5,22 +5,21 @@ const theme = createTheme({
   palette: {
     primary: {
       main: 'rgba(19, 74, 142, 1)', // blue
-      // light: 'rgba(249, 156, 46, 0.08)',
+      light: 'rgba(0, 107, 166, 1)',
       dark: 'rgb(29, 45, 92)', // navy blue
       contrastText: 'rgba(255, 255, 255, 1)',
     },
-    // secondary: {
-    //   main: 'rgb(33, 43, 54, 1)',
-    //   contrastText: 'rgb(255, 255, 255, 1)',
-    // },
+    secondary: {
+      main: 'rgb(203, 41, 28, 1)', // red
+      contrastText: 'rgb(255, 255, 255, 1)',
+    },
     text: {
       primary: 'rgb(33, 43, 54, 1)',
       secondary: 'rgb(99, 115, 129, 1)',
       disabled: 'rgba(145, 158, 171, 1)',
     },
     grey: {
-      100: 'rgba(223, 227, 232, 1)',
-      500: 'rgb(145, 158, 171, 1)',
+      500: 'rgb(177, 179, 179, 1)', // blue jays gray
     },
     background: {
       default: 'rgba(255, 255, 255, 1)',
