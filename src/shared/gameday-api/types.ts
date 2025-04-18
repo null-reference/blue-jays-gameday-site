@@ -1,147 +1,86 @@
-import { GameType, Person } from './mlb-api/types/shared-api-types';
-
-interface TeamBrief {
+// Represents basic team info
+export interface TeamSummary {
   id: number;
   name: string;
-  teamName: string;
   abbreviation: string;
 }
 
-interface GameAnalysisGame {
-  gamePk: number;
-  gameType: GameType;
-  gameDate: string;
-  season: string;
-}
-
-interface FirstPitchOfGameSeasonStat {
-  opportunities: number;
-  swings: number;
-  singles: number;
-  extraBaseHits: number;
-  swingPercentage: number;
-  singlePercentage: number;
-  extraBaseHitPercentage: number;
-}
-
-interface TeamSeasonStats {
+// Represents summary pitcher info
+export interface PitcherSummary {
+  name: string; // Last name
   wins: number;
   losses: number;
-  winPercentage: number;
-  gamesPlayed: number;
-  runsScored: number;
-  runsAllowed: number;
-  avgRunsScoredPerGame: number;
-  avgRunsAllowedPerGame: number;
-  gameResults: {
-    [gamePk: string]: {
-      game: GameAnalysisGame;
-      opponent: TeamBrief;
-      win: boolean;
-      runsScored: number;
-      runsAllowed: number;
-    };
-  };
+  era: string; // Keep as string since it can be "--.--"
 }
 
-interface PlayerSeasonStats {
-  gamesPlayed: number;
-  firstPitchOfGame: FirstPitchOfGameSeasonStat;
-
-  atBats: number;
-  hits: number;
-  battingAvg: number;
-  singles: number;
-  doubles: number;
-  triples: number;
-  homeRuns: number;
-  rbi: number;
-  avgHitsPerGame: number;
-  avgSinglesPerGame: number;
-  avgDoublesPerGame: number;
-  avgTriplesPerGame: number;
-  avgHomeRunsPerGame: number;
-  hitGames02: number;
-  hitGames03: number;
-  hitGames04: number;
-  hitGames05: number;
-  hitGames02Plus: number;
-  hitGames03Plus: number;
-  hitGames04Plus: number;
-  hitGames05Plus: number;
-
-  totalBases: number;
-  avgBasesPerGame: number;
-  baseGames02: number;
-  baseGames03: number;
-  baseGames04: number;
-  baseGames05: number;
-  baseGames06: number;
-  baseGames07: number;
-  baseGames08: number;
-  baseGames09: number;
-  baseGames10: number;
-  baseGames02Plus: number;
-  baseGames03Plus: number;
-  baseGames04Plus: number;
-  baseGames05Plus: number;
-  baseGames06Plus: number;
-  baseGames07Plus: number;
-  baseGames08Plus: number;
-  baseGames09Plus: number;
-  baseGames10Plus: number;
-
-  stolenBaseAttempts: number;
-  stolenBases: number;
-  caughtStealing: number;
-  pickoffs: number;
-  // TODO: sd - gameday - this REALLY should not be nullable
-  //       but the data that comes back from the api has it nullable...
-  //       how is it being saved as null in gameday app?
-  stolenBasePercentage: number | null;
-}
-
-interface GameLineupStatsBatter {
+// Represents summary batter info for batting order
+export interface BattingOrderBatterSummary {
   battingOrder: number;
-  person: Person;
-  seasonStats: PlayerSeasonStats;
-  statsLast10Games: PlayerSeasonStats;
+  name: string; // Last name
+  avgLast10: number; // Raw decimal
+  avgSeason: number; // Raw decimal
 }
 
-export interface GameLineupStats {
-  gamePk: number;
-  gameDate: string;
-  season: string;
-  jaysAtHome: boolean;
-  blueJays: {
-    team: TeamBrief;
-    teamStats: {
-      seasonStats: TeamSeasonStats;
-      statsLast10Games: TeamSeasonStats;
-    };
-    batters: GameLineupStatsBatter[];
-    pitchers: {
-      pitchingOrder: number;
-      person: Person;
-      era: string;
-      wins: number;
-      losses: number;
-    }[];
+// Represents first pitch stats
+export interface FirstPitchSummaryStats {
+  opportunities: number;
+  swingPercentage: number; // Raw decimal
+  singlePercentage: number; // Raw decimal
+  extraBaseHitPercentage: number; // Raw decimal
+}
+
+// Represents a ranked batter with specific stats
+export interface RankedBatterStatSummary {
+  name: string; // Last name
+  statLast10: number;
+  statSeason: number;
+}
+
+// The main summary object structure
+export interface GamedayReport {
+  gameInfo: {
+    gamePk: number;
+    gameDateStr: string; // Formatted date string e.g., "Wednesday, April 16"
+    gameTimeStr: string; // Formatted time string e.g., "1:07pm"
+    homeTeam: TeamSummary;
+    awayTeam: TeamSummary;
+    matchupString: string; // e.g., "Braves @ Blue Jays - 1:07pm"
+    isJaysHome: boolean;
   };
-  opponent: {
-    team: TeamBrief;
-    // NOTE: i don't set opponent stats; just here for symmetry but made optional
-    teamStats?: {
-      seasonStats: TeamSeasonStats;
-      statsLast10Games: TeamSeasonStats;
+  teamStats: {
+    blueJaysAbbr: string;
+    opponentAbbr: string;
+    last5Scores: Array<{
+      // Provide structured data for scores
+      gameDate: string; // ISO date string
+      blueJaysScore: number;
+      opponentScore: number;
+      opponentAbbr: string;
+    }>;
+    avgScoresLast10: {
+      // Raw numbers
+      jays: number;
+      opponent: number;
     };
-    // just need the opposing pitcher for lineup report; hacking it on here
-    pitchers: {
-      pitchingOrder: number;
-      person: Person;
-      era: string;
-      wins: number;
-      losses: number;
-    }[];
+    avgScoresSeason: {
+      // Raw numbers
+      jays: number;
+      opponent: number;
+    };
+  };
+  pitchers: {
+    home: PitcherSummary | null;
+    away: PitcherSummary | null;
+  };
+  battingOrder: BattingOrderBatterSummary[]; // Sorted by batting order
+  firstPitch: {
+    batterName: string; // Last name
+    last10: FirstPitchSummaryStats | null;
+    season: FirstPitchSummaryStats;
+  } | null; // Can be null if leadoff not found
+  rankings: {
+    twoPlusHitGames: RankedBatterStatSummary[]; // Sorted
+    twoPlusBaseGames: RankedBatterStatSummary[]; // Sorted
+    stolenBases: RankedBatterStatSummary[]; // Sorted
   };
 }

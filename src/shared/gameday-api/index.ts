@@ -1,6 +1,6 @@
 import { data as dummyData } from './dummy-data';
 
-export const getLatestGamedayStats = async () => {
+export const getLatestGamedayReport = async () => {
   // TODO: sd - call gameday api
   return dummyData;
 };
