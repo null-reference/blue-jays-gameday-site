@@ -10,13 +10,14 @@ import { Box, Divider, Stack, Typography } from '@mui/material';
 export default async function Index() {
   const report = await getLatestGamedayReport();
 
-  if (!report)
+  if (!report) {
     return (
       <Stack spacing={2} alignItems="center" paddingY={4}>
         <Typography variant="h4">Blue Jays Gameday Report</Typography>
         <Typography variant="subtitle1">UH-OH ... SOMETHING WENT WRONG!</Typography>
       </Stack>
     );
+  }
 
   // NOTE: should probably have an isodate in the gameinfo but currently
   //       this is always in Eastern in the api responses.
