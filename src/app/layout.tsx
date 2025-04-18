@@ -4,7 +4,6 @@ import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
 import { ThemeProvider } from '@mui/material/styles';
 import { Public_Sans } from 'next/font/google';
 import theme from '../theme';
-import { AuthProvider } from './providers';
 
 import './globals.css';
 
@@ -18,8 +17,8 @@ import Layout from '@/components/Layout';
 import { CssBaseline } from '@mui/material';
 
 export const metadata: Metadata = {
-  title: 'Project Solar Partner Portal',
-  description: 'Refer solar customers and get paid at install.',
+  title: 'Blue Jays Gameday',
+  description: 'Distilled statistics for the Boys in Blue.',
 };
 
 // TODO: sd - low priority - an error boundary for the app router
@@ -31,12 +30,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={publicSans.variable}>
-      {/* <Script
-        id="hs-script-loader"
-        type="text/javascript"
-        src={`//js.hs-scripts.com/${process.env.NEXT_PUBLIC_HUBSPOT_PORTAL_ID ?? ''}.js`}
-        defer
-      ></Script> */}
       <Script id="datadog-logs">
         {`
           (function() {
@@ -104,12 +97,7 @@ export default function RootLayout({
           <CssBaseline />
           {/* https://mui.com/material-ui/integrations/nextjs/ */}
           <ThemeProvider theme={theme}>
-            {/* TODO: sd - low priority - remove auth provider as it's only needed for useSession
-                      and we don't use that currently.
-            */}
-            <AuthProvider>
-              <Layout>{children}</Layout>
-            </AuthProvider>
+            <Layout>{children}</Layout>
           </ThemeProvider>
         </AppRouterCacheProvider>
       </body>

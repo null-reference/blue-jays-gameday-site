@@ -4,15 +4,15 @@ import { createTheme } from '@mui/material/styles';
 const theme = createTheme({
   palette: {
     primary: {
-      main: 'rgba(249, 156, 46, 1)', // orange
-      light: 'rgba(249, 156, 46, 0.08)',
-      dark: 'rgb(102, 56, 0, 1)',
-      contrastText: 'rgb(102, 56, 0, 1)',
+      main: 'rgba(19, 74, 142, 1)', // blue
+      // light: 'rgba(249, 156, 46, 0.08)',
+      dark: 'rgb(29, 45, 92)', // navy blue
+      contrastText: 'rgba(255, 255, 255, 1)',
     },
-    secondary: {
-      main: 'rgb(33, 43, 54, 1)',
-      contrastText: 'rgb(255, 255, 255, 1)',
-    },
+    // secondary: {
+    //   main: 'rgb(33, 43, 54, 1)',
+    //   contrastText: 'rgb(255, 255, 255, 1)',
+    // },
     text: {
       primary: 'rgb(33, 43, 54, 1)',
       secondary: 'rgb(99, 115, 129, 1)',
@@ -27,16 +27,16 @@ const theme = createTheme({
       paper: 'rgba(255, 255, 255, 1)',
     },
     divider: 'rgba(145, 158, 171, 0.2)',
-    error: {
-      main: 'rgba(255, 86, 48, 1)',
-      light: 'rgba(255, 233, 213, 1)',
-      contrastText: 'rgba(122, 9, 22, 1)',
-    },
-    success: {
-      main: 'rgba(17, 141, 87, 1)',
-      light: 'rgba(211, 252, 210, 1)',
-      contrastText: 'rgba(6, 94, 73, 1)',
-    },
+    // error: {
+    //   main: 'rgba(255, 86, 48, 1)',
+    //   light: 'rgba(255, 233, 213, 1)',
+    //   contrastText: 'rgba(122, 9, 22, 1)',
+    // },
+    // success: {
+    //   main: 'rgba(17, 141, 87, 1)',
+    //   light: 'rgba(211, 252, 210, 1)',
+    //   contrastText: 'rgba(6, 94, 73, 1)',
+    // },
   },
   typography: {
     fontFamily: 'var(--public-sans), sans-serif',
