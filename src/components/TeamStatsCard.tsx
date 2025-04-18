@@ -27,7 +27,14 @@ const formatScore = (
 export default function TeamStatsCard({ teamStats }: TeamStatsCardProps) {
   return (
     <Card sx={{ mb: 2 }}>
-      <CardHeader title="# Team Stats" titleTypographyProps={{ variant: 'h6' }} />
+      <CardHeader
+        title="# Team Stats"
+        slotProps={{
+          title: {
+            variant: 'h5',
+          },
+        }}
+      />
       <CardContent>
         <Typography variant="subtitle1" gutterBottom>
           Last 5 Scores:

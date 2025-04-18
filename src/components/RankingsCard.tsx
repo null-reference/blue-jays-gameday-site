@@ -31,7 +31,14 @@ export default function RankingsCard({ title, data }: RankingsCardProps) {
 
   return (
     <Card sx={{ mb: 2 }}>
-      <CardHeader title={`# ${title} (L10, S)`} titleTypographyProps={{ variant: 'h6' }} />
+      <CardHeader
+        title={`# ${title} (L10, S)`}
+        slotProps={{
+          title: {
+            variant: 'h5',
+          },
+        }}
+      />
       <CardContent sx={{ pt: 0 }}>
         <TableContainer component={Paper} elevation={0} variant="outlined">
           <Table size="small" aria-label={`${title} table`}>

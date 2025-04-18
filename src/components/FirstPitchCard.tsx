@@ -43,7 +43,14 @@ const StatDisplay: React.FC<{
 export default function FirstPitchCard({ firstPitch }: FirstPitchCardProps) {
   return (
     <Card sx={{ mb: 2 }}>
-      <CardHeader title="# 1st Pitch" titleTypographyProps={{ variant: 'h6' }} />
+      <CardHeader
+        title="# 1st Pitch"
+        slotProps={{
+          title: {
+            variant: 'h5',
+          },
+        }}
+      />
       <CardContent>
         <Typography variant="body1" gutterBottom>
           Leading off: <strong>{firstPitch?.batterName ?? 'N/A'}</strong>

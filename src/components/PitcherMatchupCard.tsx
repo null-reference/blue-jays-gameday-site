@@ -7,6 +7,7 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import { GamedayReport } from '@/shared/gameday-api/types';
+import { Stack } from '@mui/material';
 
 interface PitcherMatchupCardProps {
   pitchers: GamedayReport['pitchers'];
@@ -28,26 +29,29 @@ export default function PitcherMatchupCard({ pitchers, gameInfo }: PitcherMatchu
 
   return (
     <Card sx={{ mb: 2 }}>
-      <CardHeader title="# Pitchers" titleTypographyProps={{ variant: 'h6' }} />
+      <CardHeader
+        title="# Pitchers"
+        slotProps={{
+          title: {
+            variant: 'h5',
+          },
+        }}
+      />
       <CardContent>
-        <Grid container spacing={1}>
-          <Grid size={{ xs: 12 }}>
-            <Typography variant="body1" fontWeight="bold">
+        <Stack spacing={1}>
+          <Stack direction="row" spacing={1}>
+            <Typography variant="body1" fontWeight="bold" minWidth="35px">
               {awayAbbr}
             </Typography>
-          </Grid>
-          <Grid size={{ xs: 10 }}>
-            <Typography variant="body1">- {formatPitcherStat(awayPitcher)}</Typography>
-          </Grid>
-          <Grid size={{ xs: 2 }}>
-            <Typography variant="body1" fontWeight="bold">
+            <Typography variant="body1"> {formatPitcherStat(awayPitcher)}</Typography>
+          </Stack>
+          <Stack direction="row" spacing={1}>
+            <Typography variant="body1" fontWeight="bold" minWidth="35px">
               {homeAbbr}
             </Typography>
-          </Grid>
-          <Grid size={{ xs: 10 }}>
-            <Typography variant="body1">- {formatPitcherStat(homePitcher)}</Typography>
-          </Grid>
-        </Grid>
+            <Typography variant="body1"> {formatPitcherStat(homePitcher)}</Typography>
+          </Stack>
+        </Stack>
       </CardContent>
     </Card>
   );
