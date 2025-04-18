@@ -5,10 +5,14 @@ import PitcherMatchupCard from '@/components/PitcherMatchupCard';
 import RankingsCard from '@/components/RankingsCard';
 import TeamStatsCard from '@/components/TeamStatsCard';
 import { getLatestGamedayReport } from '@/shared/gameday-api';
-import { Box, Stack, Typography } from '@mui/material';
+import { Box, Divider, Stack, Typography } from '@mui/material';
 
 export default async function Index() {
   const report = await getLatestGamedayReport();
+
+  // if (!report) return (
+  // )
+
   // NOTE: should probably have an isodate in the gameinfo but currently
   //       this is always in Eastern in the api responses.
   const gameDate = report.gameInfo.gameDateStr;
@@ -20,6 +24,10 @@ export default async function Index() {
       <Typography variant="subtitle1">
         {gameDate} @ {gameTime}
       </Typography>
+      <Typography variant="body1">
+        {report.gameInfo.awayTeam.name} @ {report.gameInfo.homeTeam.name}
+      </Typography>
+      {/* <Divider sx={{ my: 1 }} /> */}
       <Stack spacing={2} width="100%">
         {/* <pre>{JSON.stringify(report, null, 2)}</pre> */}
 
