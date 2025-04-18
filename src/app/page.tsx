@@ -1,3 +1,9 @@
+import BattingOrderCard from '@/components/BattingOrderCard';
+import FirstPitchCard from '@/components/FirstPitchCard';
+import GameInfoCard from '@/components/GameInfoCard';
+import PitcherMatchupCard from '@/components/PitcherMatchupCard';
+import RankingsCard from '@/components/RankingsCard';
+import TeamStatsCard from '@/components/TeamStatsCard';
 import { getLatestGamedayReport } from '@/shared/gameday-api';
 import { Box, Stack, Typography } from '@mui/material';
 
@@ -15,7 +21,16 @@ export default async function Index() {
         {gameDate} @ {gameTime}
       </Typography>
       <Stack spacing={2} width="100%">
-        <pre>{JSON.stringify(report, null, 2)}</pre>
+        {/* <pre>{JSON.stringify(report, null, 2)}</pre> */}
+
+        {/* <GameInfoCard gameInfo={report.gameInfo} /> */}
+        <TeamStatsCard teamStats={report.teamStats} />
+        <PitcherMatchupCard pitchers={report.pitchers} gameInfo={report.gameInfo} />
+        <BattingOrderCard battingOrder={report.battingOrder} />
+        <FirstPitchCard firstPitch={report.firstPitch} />
+        <RankingsCard title="2+ Hit Games" data={report.rankings.twoPlusHitGames} />
+        <RankingsCard title="2+ Base Games" data={report.rankings.twoPlusBaseGames} />
+        <RankingsCard title="Stolen Bases" data={report.rankings.stolenBases} />
       </Stack>
     </Stack>
   );
