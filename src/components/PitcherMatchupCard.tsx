@@ -1,11 +1,7 @@
 'use client';
 
 import * as React from 'react';
-import Card from '@mui/material/Card';
-import CardHeader from '@mui/material/CardHeader';
-import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
-import Grid from '@mui/material/Grid';
 import { GamedayReport } from '@/shared/gameday-api/types';
 import { Stack } from '@mui/material';
 
@@ -28,31 +24,25 @@ export default function PitcherMatchupCard({ pitchers, gameInfo }: PitcherMatchu
   const homeAbbr = gameInfo.homeTeam.abbreviation;
 
   return (
-    <Card sx={{ mb: 2 }}>
-      <CardHeader
-        title="Pitchers"
-        slotProps={{
-          title: {
-            variant: 'h5',
-          },
-        }}
-      />
-      <CardContent>
-        <Stack spacing={1}>
-          <Stack direction="row" spacing={1}>
-            <Typography variant="body1" fontWeight="bold" minWidth="35px">
-              {awayAbbr}
-            </Typography>
-            <Typography variant="body1"> {formatPitcherStat(awayPitcher)}</Typography>
-          </Stack>
-          <Stack direction="row" spacing={1}>
-            <Typography variant="body1" fontWeight="bold" minWidth="35px">
-              {homeAbbr}
-            </Typography>
-            <Typography variant="body1"> {formatPitcherStat(homePitcher)}</Typography>
-          </Stack>
+    <Stack spacing={3} padding={{ xs: 2, sm: 3 }}>
+      <Typography variant="h5" gutterBottom>
+        Pitchers
+      </Typography>
+
+      <Stack spacing={1}>
+        <Stack direction="row" spacing={1}>
+          <Typography variant="body1" fontWeight="bold" minWidth="35px">
+            {awayAbbr}
+          </Typography>
+          <Typography variant="body1"> {formatPitcherStat(awayPitcher)}</Typography>
         </Stack>
-      </CardContent>
-    </Card>
+        <Stack direction="row" spacing={1}>
+          <Typography variant="body1" fontWeight="bold" minWidth="35px">
+            {homeAbbr}
+          </Typography>
+          <Typography variant="body1"> {formatPitcherStat(homePitcher)}</Typography>
+        </Stack>
+      </Stack>
+    </Stack>
   );
 }

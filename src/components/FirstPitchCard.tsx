@@ -1,13 +1,11 @@
 'use client';
 
 import * as React from 'react';
-import Card from '@mui/material/Card';
-import CardHeader from '@mui/material/CardHeader';
-import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import { FirstPitchSummaryStats, GamedayReport } from '@/shared/gameday-api/types';
+import { Stack } from '@mui/material';
 
 interface FirstPitchCardProps {
   firstPitch: GamedayReport['firstPitch'];
@@ -42,16 +40,12 @@ const StatDisplay: React.FC<{
 
 export default function FirstPitchCard({ firstPitch }: FirstPitchCardProps) {
   return (
-    <Card sx={{ mb: 2 }}>
-      <CardHeader
-        title="First Pitch Stats"
-        slotProps={{
-          title: {
-            variant: 'h5',
-          },
-        }}
-      />
-      <CardContent>
+    <Stack spacing={3} padding={{ xs: 2, sm: 3 }}>
+      <Typography variant="h5" gutterBottom>
+        First Pitch Stats
+      </Typography>
+
+      <Stack spacing={2}>
         <Typography variant="body1" gutterBottom>
           Leading off: <strong>{firstPitch?.batterName ?? 'N/A'}</strong>
         </Typography>
@@ -63,7 +57,7 @@ export default function FirstPitchCard({ firstPitch }: FirstPitchCardProps) {
             <StatDisplay title="Season" stats={firstPitch?.season ?? null} />
           </Grid>
         </Grid>
-      </CardContent>
-    </Card>
+      </Stack>
+    </Stack>
   );
 }

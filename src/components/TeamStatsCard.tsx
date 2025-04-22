@@ -1,16 +1,13 @@
 'use client';
 
 import * as React from 'react';
-import Card from '@mui/material/Card';
-import CardHeader from '@mui/material/CardHeader';
-import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import Divider from '@mui/material/Divider';
-import Box from '@mui/material/Box';
 import { GamedayReport } from '@/shared/gameday-api/types';
+import { Stack } from '@mui/material';
 
 interface TeamStatsCardProps {
   teamStats: GamedayReport['teamStats'];
@@ -26,16 +23,12 @@ const formatScore = (
 
 export default function TeamStatsCard({ teamStats }: TeamStatsCardProps) {
   return (
-    <Card sx={{ mb: 2 }}>
-      <CardHeader
-        title="Team Stats"
-        slotProps={{
-          title: {
-            variant: 'h5',
-          },
-        }}
-      />
-      <CardContent>
+    <Stack spacing={3} padding={{ xs: 2, sm: 3 }}>
+      <Typography variant="h5" gutterBottom>
+        Team Stats
+      </Typography>
+
+      <Stack spacing={2}>
         <Typography variant="subtitle1" gutterBottom>
           Last 5 Scores:
         </Typography>
@@ -57,7 +50,7 @@ export default function TeamStatsCard({ teamStats }: TeamStatsCardProps) {
         <Typography variant="subtitle1" gutterBottom>
           Avg. Scores:
         </Typography>
-        <Box sx={{ pl: 2 }}>
+        <Stack spacing={1} sx={{ pl: 2 }}>
           <Typography variant="body2">
             Last 10: {teamStats.blueJaysAbbr} {teamStats.avgScoresLast10.jays.toFixed(1)} -{' '}
             {teamStats.avgScoresLast10.opponent.toFixed(1)} OPP
@@ -66,8 +59,8 @@ export default function TeamStatsCard({ teamStats }: TeamStatsCardProps) {
             Season: {teamStats.blueJaysAbbr} {teamStats.avgScoresSeason.jays.toFixed(1)} -{' '}
             {teamStats.avgScoresSeason.opponent.toFixed(1)} OPP
           </Typography>
-        </Box>
-      </CardContent>
-    </Card>
+        </Stack>
+      </Stack>
+    </Stack>
   );
 }
