@@ -28,7 +28,7 @@ export default function TeamStatsCard({ teamStats }: TeamStatsCardProps) {
   return (
     <Card sx={{ mb: 2 }}>
       <CardHeader
-        title="# Team Stats"
+        title="Team Stats"
         slotProps={{
           title: {
             variant: 'h5',

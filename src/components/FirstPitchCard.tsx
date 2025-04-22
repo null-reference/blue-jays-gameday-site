@@ -44,7 +44,7 @@ export default function FirstPitchCard({ firstPitch }: FirstPitchCardProps) {
   return (
     <Card sx={{ mb: 2 }}>
       <CardHeader
-        title="# 1st Pitch"
+        title="First Pitch Stats"
         slotProps={{
           title: {
             variant: 'h5',

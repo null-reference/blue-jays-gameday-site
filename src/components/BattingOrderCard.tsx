@@ -28,7 +28,7 @@ export default function BattingOrderCard({ battingOrder }: BattingOrderCardProps
   return (
     <Card sx={{ mb: 2 }}>
       <CardHeader
-        title="# Batting (L10, S)"
+        title="Starting Lineup"
         slotProps={{
           title: {
             variant: 'h5',

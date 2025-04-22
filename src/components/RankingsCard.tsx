@@ -32,7 +32,7 @@ export default function RankingsCard({ title, data }: RankingsCardProps) {
   return (
     <Card sx={{ mb: 2 }}>
       <CardHeader
-        title={`# ${title} (L10, S)`}
+        title={`${title}`}
         slotProps={{
           title: {
             variant: 'h5',

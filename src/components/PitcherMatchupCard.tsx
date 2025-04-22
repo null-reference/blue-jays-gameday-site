@@ -30,7 +30,7 @@ export default function PitcherMatchupCard({ pitchers, gameInfo }: PitcherMatchu
   return (
     <Card sx={{ mb: 2 }}>
       <CardHeader
-        title="# Pitchers"
+        title="Pitchers"
         slotProps={{
           title: {
             variant: 'h5',
