@@ -39,10 +39,19 @@ export default async function Index() {
       <FirstPitchCard firstPitch={report.firstPitch} />
       <Divider sx={{ py: 1, borderColor: 'grey.500' }} variant="fullWidth" />
 
+      <RankingsCard title="Homeruns" data={report.rankings.homeruns} />
+      <Divider sx={{ py: 1, borderColor: 'grey.500' }} variant="fullWidth" />
+
       <RankingsCard title="2+ Hit Games" data={report.rankings.twoPlusHitGames} />
       <Divider sx={{ py: 1, borderColor: 'grey.500' }} variant="fullWidth" />
 
       <RankingsCard title="2+ Base Games" data={report.rankings.twoPlusBaseGames} />
+      <Divider sx={{ py: 1, borderColor: 'grey.500' }} variant="fullWidth" />
+
+      <RankingsCard title="3+ Hit Games" data={report.rankings.threePlusHitGames} />
+      <Divider sx={{ py: 1, borderColor: 'grey.500' }} variant="fullWidth" />
+
+      <RankingsCard title="3+ Base Games" data={report.rankings.threePlusBaseGames} />
       <Divider sx={{ py: 1, borderColor: 'grey.500' }} variant="fullWidth" />
 
       <RankingsCard title="Stolen Bases" data={report.rankings.stolenBases} />

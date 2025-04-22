@@ -79,8 +79,11 @@ export interface GamedayReport {
     season: FirstPitchSummaryStats;
   } | null; // Can be null if leadoff not found
   rankings: {
+    homeruns: RankedBatterStatSummary[]; // Sorted
     twoPlusHitGames: RankedBatterStatSummary[]; // Sorted
     twoPlusBaseGames: RankedBatterStatSummary[]; // Sorted
+    threePlusHitGames: RankedBatterStatSummary[]; // Sorted
+    threePlusBaseGames: RankedBatterStatSummary[]; // Sorted
     stolenBases: RankedBatterStatSummary[]; // Sorted
   };
 }

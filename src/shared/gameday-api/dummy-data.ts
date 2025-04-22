@@ -2,26 +2,44 @@ import { GamedayReport } from './types';
 
 export const data: GamedayReport = {
   gameInfo: {
-    gamePk: 778297,
-    gameDateStr: 'Wednesday, April 16',
-    gameTimeStr: '1:07pm',
+    gamePk: 778231,
+    gameDateStr: 'Monday, April 21',
+    gameTimeStr: '8:10pm',
     homeTeam: {
+      id: 117,
+      name: 'Astros',
+      abbreviation: 'HOU',
+    },
+    awayTeam: {
       id: 141,
       name: 'Blue Jays',
       abbreviation: 'TOR',
     },
-    awayTeam: {
-      id: 144,
-      name: 'Braves',
-      abbreviation: 'ATL',
-    },
-    matchupString: 'Braves @ Blue Jays - 1:07pm',
-    isJaysHome: true,
+    matchupString: 'Blue Jays @ Astros - 8:10pm',
+    isJaysHome: false,
   },
   teamStats: {
     blueJaysAbbr: 'TOR',
-    opponentAbbr: 'ATL',
+    opponentAbbr: 'HOU',
     last5Scores: [
+      {
+        gameDate: '2025-04-20T17:37:00Z',
+        blueJaysScore: 3,
+        opponentScore: 8,
+        opponentAbbr: 'SEA',
+      },
+      {
+        gameDate: '2025-04-19T19:07:00Z',
+        blueJaysScore: 4,
+        opponentScore: 8,
+        opponentAbbr: 'SEA',
+      },
+      {
+        gameDate: '2025-04-18T23:07:00Z',
+        blueJaysScore: 3,
+        opponentScore: 1,
+        opponentAbbr: 'SEA',
+      },
       {
         gameDate: '2025-04-16T17:07:00Z',
         blueJaysScore: 3,
@@ -34,102 +52,84 @@ export const data: GamedayReport = {
         opponentScore: 3,
         opponentAbbr: 'ATL',
       },
-      {
-        gameDate: '2025-04-14T23:07:00Z',
-        blueJaysScore: 4,
-        opponentScore: 8,
-        opponentAbbr: 'ATL',
-      },
-      {
-        gameDate: '2025-04-13T17:35:00Z',
-        blueJaysScore: 7,
-        opponentScore: 6,
-        opponentAbbr: 'BAL',
-      },
-      {
-        gameDate: '2025-04-12T20:05:00Z',
-        blueJaysScore: 4,
-        opponentScore: 5,
-        opponentAbbr: 'BAL',
-      },
     ],
     avgScoresLast10: {
-      jays: 4.2,
-      opponent: 3.3,
+      jays: 3.9,
+      opponent: 4.5,
     },
     avgScoresSeason: {
-      jays: 4,
-      opponent: 3.789473684210526,
+      jays: 3.909090909090909,
+      opponent: 4.045454545454546,
     },
   },
   pitchers: {
     home: {
-      name: 'Bassitt',
+      name: 'Brown',
       wins: 2,
-      losses: 0,
-      era: '0.77',
+      losses: 1,
+      era: '1.50',
     },
     away: {
-      name: 'Strider',
-      wins: 0,
+      name: 'Gausman',
+      wins: 2,
       losses: 1,
-      era: '3.60',
+      era: '2.49',
     },
   },
   battingOrder: [
     {
       battingOrder: 1,
       name: 'Bichette',
-      avgLast10: 0.29545454545454547,
-      avgSeason: 0.3048780487804878,
+      avgLast10: 0.3111111111111111,
+      avgSeason: 0.3125,
     },
     {
       battingOrder: 2,
       name: 'Guerrero Jr.',
-      avgLast10: 0.2972972972972973,
-      avgSeason: 0.2916666666666667,
+      avgLast10: 0.37142857142857144,
+      avgSeason: 0.3048780487804878,
     },
     {
       battingOrder: 3,
       name: 'Santander',
-      avgLast10: 0.225,
-      avgSeason: 0.21621621621621623,
+      avgLast10: 0.23255813953488372,
+      avgSeason: 0.20454545454545456,
     },
     {
       battingOrder: 4,
-      name: 'Giménez',
-      avgLast10: 0.14285714285714285,
-      avgSeason: 0.2028985507246377,
+      name: 'Springer',
+      avgLast10: 0.3125,
+      avgSeason: 0.3442622950819672,
     },
     {
       battingOrder: 5,
-      name: 'Kirk',
-      avgLast10: 0.23076923076923078,
-      avgSeason: 0.24074074074074073,
+      name: 'Giménez',
+      avgLast10: 0.19047619047619047,
+      avgSeason: 0.20481927710843373,
     },
     {
       battingOrder: 6,
-      name: 'Roden',
-      avgLast10: 0.21428571428571427,
-      avgSeason: 0.2653061224489796,
+      name: 'Kirk',
+      avgLast10: 0.23684210526315788,
+      avgSeason: 0.2459016393442623,
     },
     {
       battingOrder: 7,
       name: 'Clement',
-      avgLast10: 0.23076923076923078,
-      avgSeason: 0.18604651162790697,
+      avgLast10: 0.3,
+      avgSeason: 0.22448979591836735,
     },
     {
       battingOrder: 8,
-      name: 'Barger',
-      avgLast10: 0,
-      avgSeason: 0,
+      name: 'Roden',
+      avgLast10: 0.2,
+      avgSeason: 0.23214285714285715,
     },
     {
       battingOrder: 9,
       name: 'Straw',
-      avgLast10: 0.3333333333333333,
-      avgSeason: 0.3548387096774194,
+      avgLast10: 0.2857142857142857,
+      avgSeason: 0.3142857142857143,
     },
   ],
   firstPitch: {
@@ -141,28 +141,85 @@ export const data: GamedayReport = {
       extraBaseHitPercentage: 0.1,
     },
     season: {
-      opportunities: 19,
-      swingPercentage: 0.47368421052631576,
-      singlePercentage: 0.05263157894736842,
-      extraBaseHitPercentage: 0.05263157894736842,
+      opportunities: 22,
+      swingPercentage: 0.45454545454545453,
+      singlePercentage: 0.045454545454545456,
+      extraBaseHitPercentage: 0.045454545454545456,
     },
   },
   rankings: {
-    twoPlusHitGames: [
+    homeruns: [
+      {
+        name: 'Santander',
+        statLast10: 2,
+        statSeason: 2,
+      },
+      {
+        name: 'Springer',
+        statLast10: 1,
+        statSeason: 2,
+      },
       {
         name: 'Guerrero Jr.',
-        statLast10: 5,
-        statSeason: 8,
+        statLast10: 1,
+        statSeason: 1,
+      },
+      {
+        name: 'Kirk',
+        statLast10: 1,
+        statSeason: 1,
+      },
+      {
+        name: 'Roden',
+        statLast10: 1,
+        statSeason: 1,
+      },
+      {
+        name: 'Straw',
+        statLast10: 1,
+        statSeason: 1,
+      },
+      {
+        name: 'Giménez',
+        statLast10: 0,
+        statSeason: 3,
       },
       {
         name: 'Bichette',
-        statLast10: 4,
+        statLast10: 0,
+        statSeason: 0,
+      },
+      {
+        name: 'Clement',
+        statLast10: 0,
+        statSeason: 0,
+      },
+    ],
+    twoPlusHitGames: [
+      {
+        name: 'Guerrero Jr.',
+        statLast10: 6,
+        statSeason: 10,
+      },
+      {
+        name: 'Bichette',
+        statLast10: 5,
+        statSeason: 10,
+      },
+      {
+        name: 'Springer',
+        statLast10: 3,
         statSeason: 8,
       },
       {
         name: 'Kirk',
-        statLast10: 4,
+        statLast10: 3,
         statSeason: 5,
+      },
+      {
+        name: 'Giménez',
+        statLast10: 3,
+        statSeason: 4,
       },
       {
         name: 'Roden',
@@ -170,9 +227,9 @@ export const data: GamedayReport = {
         statSeason: 4,
       },
       {
-        name: 'Giménez',
+        name: 'Clement',
         statLast10: 2,
-        statSeason: 3,
+        statSeason: 2,
       },
       {
         name: 'Santander',
@@ -184,27 +241,22 @@ export const data: GamedayReport = {
         statLast10: 1,
         statSeason: 2,
       },
-      {
-        name: 'Clement',
-        statLast10: 1,
-        statSeason: 1,
-      },
-      {
-        name: 'Barger',
-        statLast10: 0,
-        statSeason: 0,
-      },
     ],
     twoPlusBaseGames: [
       {
         name: 'Bichette',
         statLast10: 6,
-        statSeason: 10,
+        statSeason: 12,
       },
       {
         name: 'Guerrero Jr.',
+        statLast10: 6,
+        statSeason: 12,
+      },
+      {
+        name: 'Springer',
         statLast10: 5,
-        statSeason: 10,
+        statSeason: 11,
       },
       {
         name: 'Santander',
@@ -212,14 +264,14 @@ export const data: GamedayReport = {
         statSeason: 7,
       },
       {
-        name: 'Kirk',
-        statLast10: 4,
-        statSeason: 5,
+        name: 'Giménez',
+        statLast10: 3,
+        statSeason: 7,
       },
       {
-        name: 'Giménez',
-        statLast10: 2,
-        statSeason: 6,
+        name: 'Kirk',
+        statLast10: 3,
+        statSeason: 5,
       },
       {
         name: 'Roden',
@@ -233,23 +285,117 @@ export const data: GamedayReport = {
       },
       {
         name: 'Clement',
+        statLast10: 2,
+        statSeason: 3,
+      },
+    ],
+    threePlusHitGames: [
+      {
+        name: 'Clement',
+        statLast10: 2,
+        statSeason: 2,
+      },
+      {
+        name: 'Bichette',
+        statLast10: 1,
+        statSeason: 4,
+      },
+      {
+        name: 'Guerrero Jr.',
+        statLast10: 1,
+        statSeason: 1,
+      },
+      {
+        name: 'Springer',
+        statLast10: 1,
+        statSeason: 1,
+      },
+      {
+        name: 'Giménez',
+        statLast10: 1,
+        statSeason: 1,
+      },
+      {
+        name: 'Straw',
+        statLast10: 0,
+        statSeason: 1,
+      },
+      {
+        name: 'Kirk',
+        statLast10: 0,
+        statSeason: 0,
+      },
+      {
+        name: 'Santander',
+        statLast10: 0,
+        statSeason: 0,
+      },
+      {
+        name: 'Roden',
+        statLast10: 0,
+        statSeason: 0,
+      },
+    ],
+    threePlusBaseGames: [
+      {
+        name: 'Guerrero Jr.',
+        statLast10: 5,
+        statSeason: 6,
+      },
+      {
+        name: 'Springer',
+        statLast10: 3,
+        statSeason: 7,
+      },
+      {
+        name: 'Bichette',
+        statLast10: 2,
+        statSeason: 5,
+      },
+      {
+        name: 'Giménez',
+        statLast10: 2,
+        statSeason: 5,
+      },
+      {
+        name: 'Santander',
+        statLast10: 2,
+        statSeason: 3,
+      },
+      {
+        name: 'Clement',
+        statLast10: 2,
+        statSeason: 2,
+      },
+      {
+        name: 'Kirk',
         statLast10: 1,
         statSeason: 2,
       },
       {
-        name: 'Barger',
-        statLast10: 0,
-        statSeason: 0,
+        name: 'Roden',
+        statLast10: 1,
+        statSeason: 2,
+      },
+      {
+        name: 'Straw',
+        statLast10: 1,
+        statSeason: 2,
       },
     ],
     stolenBases: [
       {
         name: 'Giménez',
-        statLast10: 5,
-        statSeason: 6,
+        statLast10: 4,
+        statSeason: 7,
       },
       {
         name: 'Straw',
+        statLast10: 2,
+        statSeason: 2,
+      },
+      {
+        name: 'Bichette',
         statLast10: 2,
         statSeason: 2,
       },
@@ -259,9 +405,9 @@ export const data: GamedayReport = {
         statSeason: 1,
       },
       {
-        name: 'Bichette',
+        name: 'Springer',
         statLast10: 0,
-        statSeason: 0,
+        statSeason: 2,
       },
       {
         name: 'Guerrero Jr.',
@@ -280,11 +426,6 @@ export const data: GamedayReport = {
       },
       {
         name: 'Roden',
-        statLast10: 0,
-        statSeason: 0,
-      },
-      {
-        name: 'Barger',
         statLast10: 0,
         statSeason: 0,
       },
