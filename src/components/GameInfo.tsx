@@ -29,7 +29,7 @@ const getTeamLogo = (teamAbbr: string) => {
     case 'CIN':
       return '/team-logos/reds-300x300.png';
     case 'CLE':
-      return '/team-logos/indians-300x300.png';
+      return '/team-logos/guardians-300x300.png';
     case 'COL':
       return '/team-logos/rockies-300x300.png';
     case 'DET':
