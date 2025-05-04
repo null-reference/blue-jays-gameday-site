@@ -25,9 +25,7 @@ export default async function Index() {
   // TODO: make stats into tables where applicable
   // TODO: add team wins/losses to game info
   // TODO: add up/down arrows indicating if the player is trending up or down
-  // TODO: add rbi stats
-  // TODO: add doubles stats
-  // TODO: add triples stats
+  // TODO: add quick links to navigate to a section of the page
 
   return (
     <Stack spacing={2} width="100%" paddingY={4}>
@@ -49,6 +47,12 @@ export default async function Index() {
       <RankingsCard title="Homeruns" data={report.rankings.homeruns} />
       <Divider sx={{ py: 1, borderColor: 'grey.500' }} variant="fullWidth" />
 
+      <RankingsCard title="2+ Rbi Games" data={report.rankings.twoPlusRbiGames} />
+      <Divider sx={{ py: 1, borderColor: 'grey.500' }} variant="fullWidth" />
+
+      <RankingsCard title="3+ Rbi Games" data={report.rankings.threePlusRbiGames} />
+      <Divider sx={{ py: 1, borderColor: 'grey.500' }} variant="fullWidth" />
+
       <RankingsCard title="2+ Hit Games" data={report.rankings.twoPlusHitGames} />
       <Divider sx={{ py: 1, borderColor: 'grey.500' }} variant="fullWidth" />
 
@@ -59,6 +63,12 @@ export default async function Index() {
       <Divider sx={{ py: 1, borderColor: 'grey.500' }} variant="fullWidth" />
 
       <RankingsCard title="3+ Base Games" data={report.rankings.threePlusBaseGames} />
+      <Divider sx={{ py: 1, borderColor: 'grey.500' }} variant="fullWidth" />
+
+      <RankingsCard title="Doubles" data={report.rankings.doubles} />
+      <Divider sx={{ py: 1, borderColor: 'grey.500' }} variant="fullWidth" />
+
+      <RankingsCard title="Triples" data={report.rankings.triples} />
       <Divider sx={{ py: 1, borderColor: 'grey.500' }} variant="fullWidth" />
 
       <RankingsCard title="Stolen Bases" data={report.rankings.stolenBases} />
