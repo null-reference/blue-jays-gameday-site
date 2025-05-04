@@ -24,8 +24,8 @@ export default async function Index() {
 
   // TODO: make stats into tables where applicable
   // TODO: add team wins/losses to game info
-  // TODO: add up/down arrows indicating if the player is trending up or down
   // TODO: add quick links to navigate to a section of the page
+  // TODO: add "hot players" to the top of the page; determine from upward trends
 
   return (
     <Stack spacing={2} width="100%" paddingY={4}>
