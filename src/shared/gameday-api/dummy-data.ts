@@ -195,6 +195,147 @@ export const data: GamedayReport = {
         statSeason: 0,
       },
     ],
+    rbi: [
+      {
+        name: 'Santander',
+        statLast10: 2,
+        statSeason: 2,
+      },
+      {
+        name: 'Springer',
+        statLast10: 1,
+        statSeason: 2,
+      },
+      {
+        name: 'Guerrero Jr.',
+        statLast10: 1,
+        statSeason: 1,
+      },
+      {
+        name: 'Kirk',
+        statLast10: 1,
+        statSeason: 1,
+      },
+      {
+        name: 'Roden',
+        statLast10: 1,
+        statSeason: 1,
+      },
+      {
+        name: 'Straw',
+        statLast10: 1,
+        statSeason: 1,
+      },
+      {
+        name: 'Giménez',
+        statLast10: 0,
+        statSeason: 3,
+      },
+      {
+        name: 'Bichette',
+        statLast10: 0,
+        statSeason: 0,
+      },
+      {
+        name: 'Clement',
+        statLast10: 0,
+        statSeason: 0,
+      },
+    ],
+    twoPlusRbiGames: [
+      {
+        name: 'Guerrero Jr.',
+        statLast10: 6,
+        statSeason: 10,
+      },
+      {
+        name: 'Bichette',
+        statLast10: 5,
+        statSeason: 10,
+      },
+      {
+        name: 'Springer',
+        statLast10: 3,
+        statSeason: 8,
+      },
+      {
+        name: 'Kirk',
+        statLast10: 3,
+        statSeason: 5,
+      },
+      {
+        name: 'Giménez',
+        statLast10: 3,
+        statSeason: 4,
+      },
+      {
+        name: 'Roden',
+        statLast10: 2,
+        statSeason: 4,
+      },
+      {
+        name: 'Clement',
+        statLast10: 2,
+        statSeason: 2,
+      },
+      {
+        name: 'Santander',
+        statLast10: 1,
+        statSeason: 3,
+      },
+      {
+        name: 'Straw',
+        statLast10: 1,
+        statSeason: 2,
+      },
+    ],
+    threePlusRbiGames: [
+      {
+        name: 'Bichette',
+        statLast10: 6,
+        statSeason: 12,
+      },
+      {
+        name: 'Guerrero Jr.',
+        statLast10: 6,
+        statSeason: 12,
+      },
+      {
+        name: 'Springer',
+        statLast10: 5,
+        statSeason: 11,
+      },
+      {
+        name: 'Santander',
+        statLast10: 5,
+        statSeason: 7,
+      },
+      {
+        name: 'Giménez',
+        statLast10: 3,
+        statSeason: 7,
+      },
+      {
+        name: 'Kirk',
+        statLast10: 3,
+        statSeason: 5,
+      },
+      {
+        name: 'Roden',
+        statLast10: 2,
+        statSeason: 5,
+      },
+      {
+        name: 'Straw',
+        statLast10: 2,
+        statSeason: 3,
+      },
+      {
+        name: 'Clement',
+        statLast10: 2,
+        statSeason: 3,
+      },
+    ],
     twoPlusHitGames: [
       {
         name: 'Guerrero Jr.',
@@ -381,6 +522,100 @@ export const data: GamedayReport = {
         name: 'Straw',
         statLast10: 1,
         statSeason: 2,
+      },
+    ],
+    doubles: [
+      {
+        name: 'Santander',
+        statLast10: 2,
+        statSeason: 2,
+      },
+      {
+        name: 'Springer',
+        statLast10: 1,
+        statSeason: 2,
+      },
+      {
+        name: 'Guerrero Jr.',
+        statLast10: 1,
+        statSeason: 1,
+      },
+      {
+        name: 'Kirk',
+        statLast10: 1,
+        statSeason: 1,
+      },
+      {
+        name: 'Roden',
+        statLast10: 1,
+        statSeason: 1,
+      },
+      {
+        name: 'Straw',
+        statLast10: 1,
+        statSeason: 1,
+      },
+      {
+        name: 'Giménez',
+        statLast10: 0,
+        statSeason: 3,
+      },
+      {
+        name: 'Bichette',
+        statLast10: 0,
+        statSeason: 0,
+      },
+      {
+        name: 'Clement',
+        statLast10: 0,
+        statSeason: 0,
+      },
+    ],
+    triples: [
+      {
+        name: 'Santander',
+        statLast10: 2,
+        statSeason: 2,
+      },
+      {
+        name: 'Springer',
+        statLast10: 1,
+        statSeason: 2,
+      },
+      {
+        name: 'Guerrero Jr.',
+        statLast10: 1,
+        statSeason: 1,
+      },
+      {
+        name: 'Kirk',
+        statLast10: 1,
+        statSeason: 1,
+      },
+      {
+        name: 'Roden',
+        statLast10: 1,
+        statSeason: 1,
+      },
+      {
+        name: 'Straw',
+        statLast10: 1,
+        statSeason: 1,
+      },
+      {
+        name: 'Giménez',
+        statLast10: 0,
+        statSeason: 3,
+      },
+      {
+        name: 'Bichette',
+        statLast10: 0,
+        statSeason: 0,
+      },
+      {
+        name: 'Clement',
+        statLast10: 0,
+        statSeason: 0,
       },
     ],
     stolenBases: [
