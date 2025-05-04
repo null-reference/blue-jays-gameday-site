@@ -22,6 +22,13 @@ export default async function Index() {
     );
   }
 
+  // TODO: make stats into tables where applicable
+  // TODO: add team wins/losses to game info
+  // TODO: add up/down arrows indicating if the player is trending up or down
+  // TODO: add rbi stats
+  // TODO: add doubles stats
+  // TODO: add triples stats
+
   return (
     <Stack spacing={2} width="100%" paddingY={4}>
       <GameInfo gameInfo={report.gameInfo} />

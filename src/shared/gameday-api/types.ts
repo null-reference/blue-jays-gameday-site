@@ -50,6 +50,7 @@ export interface GamedayReport {
   teamStats: {
     blueJaysAbbr: string;
     opponentAbbr: string;
+    // TODO: this stat should be like "last 20 scores" and i can pull what i need
     last5Scores: Array<{
       // Provide structured data for scores
       gameDate: string; // ISO date string
