@@ -81,10 +81,15 @@ export interface GamedayReport {
   } | null; // Can be null if leadoff not found
   rankings: {
     homeruns: RankedBatterStatSummary[]; // Sorted
+    rbi: RankedBatterStatSummary[]; // Sorted
     twoPlusHitGames: RankedBatterStatSummary[]; // Sorted
     twoPlusBaseGames: RankedBatterStatSummary[]; // Sorted
     threePlusHitGames: RankedBatterStatSummary[]; // Sorted
     threePlusBaseGames: RankedBatterStatSummary[]; // Sorted
+    twoPlusRbiGames: RankedBatterStatSummary[]; // Sorted
+    threePlusRbiGames: RankedBatterStatSummary[]; // Sorted
+    doubles: RankedBatterStatSummary[]; // Sorted
+    triples: RankedBatterStatSummary[]; // Sorted
     stolenBases: RankedBatterStatSummary[]; // Sorted
   };
 }
