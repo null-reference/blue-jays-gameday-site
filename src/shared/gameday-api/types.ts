@@ -34,6 +34,7 @@ export interface RankedBatterStatSummary {
   name: string; // Last name
   statLast10: number;
   statSeason: number;
+  trending: 'up' | 'down' | 'neutral';
 }
 
 // The main summary object structure
