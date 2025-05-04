@@ -22,6 +22,7 @@ export default async function Index() {
     );
   }
 
+  // TODO: add trending to batting order? useful at all?
   // TODO: make stats into tables where applicable
   // TODO: add team wins/losses to game info
   // TODO: add quick links to navigate to a section of the page
