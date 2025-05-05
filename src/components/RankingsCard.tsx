@@ -1,6 +1,7 @@
 'use client';
 
 import * as React from 'react';
+import { Box, Stack, Typography } from '@mui/material';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -9,11 +10,11 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { RankedBatterStatSummary } from '@/shared/gameday-api/types';
-import { Stack, Typography } from '@mui/material';
 
 interface RankingsCardProps {
   title: string;
   data: RankedBatterStatSummary[]; // Use one type, they are structurally identical
+  hotPlayers: string[];
 }
 
 const TrendingIcon = ({ trend }: { trend: 'up' | 'down' | 'neutral' }) => {
@@ -73,7 +74,7 @@ const TrendingIcon = ({ trend }: { trend: 'up' | 'down' | 'neutral' }) => {
   );
 };
 
-export default function RankingsCard({ title, data }: RankingsCardProps) {
+export default function RankingsCard({ title, data, hotPlayers }: RankingsCardProps) {
   // Filter out players with 0 in both L10 and Season for stolen bases
   const filteredData = title.toLowerCase().includes('stolen')
     ? data.filter((p) => p.statLast10 > 0 || p.statSeason > 0)
@@ -121,6 +122,11 @@ export default function RankingsCard({ title, data }: RankingsCardProps) {
                 </TableCell>
                 <TableCell component="th" scope="row">
                   {player.name}
+                  {hotPlayers.includes(player.name) && (
+                    <Box component="span" sx={{ pl: 0.25 }}>
+                      🔥
+                    </Box>
+                  )}
                 </TableCell>
                 <TableCell align="right">{player.statLast10}</TableCell>
                 <TableCell align="right">{player.statSeason}</TableCell>

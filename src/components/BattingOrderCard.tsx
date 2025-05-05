@@ -13,6 +13,7 @@ import { BattingOrderBatterSummary } from '@/shared/gameday-api/types';
 
 interface BattingOrderCardProps {
   battingOrder: BattingOrderBatterSummary[];
+  hotPlayers: string[];
 }
 
 // Helper to format average
@@ -82,7 +83,7 @@ const TrendingIcon = ({ trend }: { trend: 'up' | 'down' | 'neutral' }) => {
   );
 };
 
-export default function BattingOrderCard({ battingOrder }: BattingOrderCardProps) {
+export default function BattingOrderCard({ battingOrder, hotPlayers }: BattingOrderCardProps) {
   return (
     <Stack spacing={3} padding={{ xs: 2, sm: 3 }}>
       <Typography variant="h5" gutterBottom>
@@ -112,12 +113,17 @@ export default function BattingOrderCard({ battingOrder }: BattingOrderCardProps
                 <TableCell component="th" scope="row">
                   {batter.battingOrder}
                 </TableCell>
-                <TableCell>{batter.name}</TableCell>
+                <TableCell>
+                  {batter.name}
+                  {hotPlayers.includes(batter.name) && (
+                    <Box component="span" sx={{ pl: 0.25 }}>
+                      🔥
+                    </Box>
+                  )}
+                </TableCell>
                 <TableCell align="right" sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
                   <TrendingIcon trend={batter.avgLast10Trending} />
-                  <Box component="span" sx={{ verticalAlign: 'middle' }}>
-                    {formatAvg(batter.avgLast10)}
-                  </Box>
+                  <Box component="span">{formatAvg(batter.avgLast10)}</Box>
                 </TableCell>
                 <TableCell align="right">{formatAvg(batter.avgSeason)}</TableCell>
               </TableRow>
