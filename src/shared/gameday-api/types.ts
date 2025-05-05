@@ -19,6 +19,7 @@ export interface BattingOrderBatterSummary {
   name: string; // Last name
   avgLast10: number; // Raw decimal
   avgSeason: number; // Raw decimal
+  avgLast10Trending: 'up' | 'down' | 'neutral';
 }
 
 // Represents first pitch stats
