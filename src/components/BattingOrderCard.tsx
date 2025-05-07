@@ -13,7 +13,7 @@ import { BattingOrderBatterSummary } from '@/shared/gameday-api/types';
 
 interface BattingOrderCardProps {
   battingOrder: BattingOrderBatterSummary[];
-  hotPlayers: string[];
+  hotPlayers: number[];
 }
 
 // Helper to format average
@@ -115,7 +115,7 @@ export default function BattingOrderCard({ battingOrder, hotPlayers }: BattingOr
                 </TableCell>
                 <TableCell>
                   {batter.name}
-                  {hotPlayers.includes(batter.name) && (
+                  {hotPlayers.includes(batter.playerId) && (
                     <Box component="span" sx={{ pl: 0.25 }}>
                       🔥
                     </Box>

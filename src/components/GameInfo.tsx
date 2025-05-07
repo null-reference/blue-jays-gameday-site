@@ -3,7 +3,7 @@
 import * as React from 'react';
 import Typography from '@mui/material/Typography';
 import { GamedayReport } from '@/shared/gameday-api/types';
-import { Stack } from '@mui/material';
+import { Box, Stack } from '@mui/material';
 import Image from 'next/image';
 
 interface GameInfoCardProps {
@@ -98,9 +98,26 @@ export default function GameInfo({ gameInfo }: GameInfoCardProps) {
           width={32}
           height={32}
         />
-        <Typography variant="body1">
+        <Stack direction="row" spacing={1} alignItems="flex-start">
+          <Stack spacing={0} alignItems="center">
+            <Typography variant="body1">{gameInfo.awayTeam.name}</Typography>
+            <Typography variant="caption">
+              {gameInfo.awayTeam.wins} - {gameInfo.awayTeam.losses}
+            </Typography>
+          </Stack>
+          <Box>
+            <Typography variant="body1">@</Typography>
+          </Box>
+          <Stack spacing={0} alignItems="center">
+            <Typography variant="body1">{gameInfo.homeTeam.name}</Typography>
+            <Typography variant="caption">
+              {gameInfo.homeTeam.wins} - {gameInfo.homeTeam.losses}
+            </Typography>
+          </Stack>
+        </Stack>
+        {/* <Typography variant="body1">
           {gameInfo.awayTeam.name} @ {gameInfo.homeTeam.name}
-        </Typography>
+        </Typography> */}
         <Image
           src={getTeamLogo(gameInfo.homeTeam.abbreviation)}
           alt={gameInfo.homeTeam.name}

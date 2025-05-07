@@ -30,34 +30,34 @@ export default async function Index() {
   //       where we are determining the top trending players
   const playersTrendingUpHomeruns = report.rankings.homeruns
     .filter((player) => player.trending === 'up')
-    .map((player) => player.name);
+    .map((player) => player.playerId);
   const playersTrendingUpTwoPlusRbiGames = report.rankings.twoPlusRbiGames
     .filter((player) => player.trending === 'up')
-    .map((player) => player.name);
+    .map((player) => player.playerId);
   const playersTrendingUpThreePlusRbiGames = report.rankings.threePlusRbiGames
     .filter((player) => player.trending === 'up')
-    .map((player) => player.name);
+    .map((player) => player.playerId);
   const playersTrendingUpTwoPlusHitGames = report.rankings.twoPlusHitGames
     .filter((player) => player.trending === 'up')
-    .map((player) => player.name);
+    .map((player) => player.playerId);
   const playersTrendingUpTwoPlusBaseGames = report.rankings.twoPlusBaseGames
     .filter((player) => player.trending === 'up')
-    .map((player) => player.name);
+    .map((player) => player.playerId);
   const playersTrendingUpThreePlusHitGames = report.rankings.threePlusHitGames
     .filter((player) => player.trending === 'up')
-    .map((player) => player.name);
+    .map((player) => player.playerId);
   const playersTrendingUpThreePlusBaseGames = report.rankings.threePlusBaseGames
     .filter((player) => player.trending === 'up')
-    .map((player) => player.name);
+    .map((player) => player.playerId);
   const playersTrendingUpDoubles = report.rankings.doubles
     .filter((player) => player.trending === 'up')
-    .map((player) => player.name);
+    .map((player) => player.playerId);
   const playersTrendingUpTriples = report.rankings.triples
     .filter((player) => player.trending === 'up')
-    .map((player) => player.name);
+    .map((player) => player.playerId);
   const playersTrendingUpStolenBases = report.rankings.stolenBases
     .filter((player) => player.trending === 'up')
-    .map((player) => player.name);
+    .map((player) => player.playerId);
 
   const allTrendingUpPlayers = [
     ...playersTrendingUpHomeruns,
@@ -72,18 +72,18 @@ export default async function Index() {
     ...playersTrendingUpStolenBases,
   ];
 
-  const playerTrendCounts: Record<string, number> = {};
-  for (const name of allTrendingUpPlayers) {
-    playerTrendCounts[name] = (playerTrendCounts[name] || 0) + 1;
+  const playerTrendCounts: Record<number, number> = {};
+  for (const playerId of allTrendingUpPlayers) {
+    playerTrendCounts[playerId] = (playerTrendCounts[playerId] || 0) + 1;
   }
 
   const topTrendingPlayers = Object.entries(playerTrendCounts)
     .sort((a, b) => b[1] - a[1])
-    .map(([name, count]) => ({ name, count }));
+    .map(([playerId, count]) => ({ playerId: parseInt(playerId), count }));
 
   // Get the top N trending players (account for ties)
   const N = 2;
-  const result: { name: string; count: number }[] = [];
+  const result: { playerId: number; count: number }[] = [];
 
   for (const player of topTrendingPlayers) {
     if (result.length < N) {
@@ -95,7 +95,7 @@ export default async function Index() {
     }
   }
 
-  const topNTrendingPlayers = result.map((p) => p.name);
+  const topNTrendingPlayers = result.map((p) => p.playerId);
 
   return (
     <Stack spacing={2} width="100%" paddingY={4}>

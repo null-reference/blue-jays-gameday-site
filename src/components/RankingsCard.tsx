@@ -14,7 +14,7 @@ import { RankedBatterStatSummary } from '@/shared/gameday-api/types';
 interface RankingsCardProps {
   title: string;
   data: RankedBatterStatSummary[]; // Use one type, they are structurally identical
-  hotPlayers: string[];
+  hotPlayers: number[];
 }
 
 const TrendingIcon = ({ trend }: { trend: 'up' | 'down' | 'neutral' }) => {
@@ -122,7 +122,7 @@ export default function RankingsCard({ title, data, hotPlayers }: RankingsCardPr
                 </TableCell>
                 <TableCell component="th" scope="row">
                   {player.name}
-                  {hotPlayers.includes(player.name) && (
+                  {hotPlayers.includes(player.playerId) && (
                     <Box component="span" sx={{ pl: 0.25 }}>
                       🔥
                     </Box>

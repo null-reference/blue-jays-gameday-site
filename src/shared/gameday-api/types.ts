@@ -3,10 +3,13 @@ export interface TeamSummary {
   id: number;
   name: string;
   abbreviation: string;
+  wins: number;
+  losses: number;
 }
 
 // Represents summary pitcher info
 export interface PitcherSummary {
+  playerId: number;
   name: string; // Last name
   wins: number;
   losses: number;
@@ -16,6 +19,7 @@ export interface PitcherSummary {
 // Represents summary batter info for batting order
 export interface BattingOrderBatterSummary {
   battingOrder: number;
+  playerId: number;
   name: string; // Last name
   avgLast10: number; // Raw decimal
   avgSeason: number; // Raw decimal
@@ -32,6 +36,7 @@ export interface FirstPitchSummaryStats {
 
 // Represents a ranked batter with specific stats
 export interface RankedBatterStatSummary {
+  playerId: number;
   name: string; // Last name
   statLast10: number;
   statSeason: number;
@@ -77,6 +82,7 @@ export interface GamedayReport {
   };
   battingOrder: BattingOrderBatterSummary[]; // Sorted by batting order
   firstPitch: {
+    playerId: number;
     batterName: string; // Last name
     last10: FirstPitchSummaryStats | null;
     season: FirstPitchSummaryStats;
