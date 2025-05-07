@@ -92,12 +92,14 @@ export default function GameInfo({ gameInfo }: GameInfoCardProps) {
         {gameDate} @ {gameTime}
       </Typography>
       <Stack direction="row" spacing={2} alignItems="center">
-        <Image
-          src={getTeamLogo(gameInfo.awayTeam.abbreviation)}
-          alt={gameInfo.awayTeam.name}
-          width={32}
-          height={32}
-        />
+        <Box>
+          <Image
+            src={getTeamLogo(gameInfo.awayTeam.abbreviation)}
+            alt={gameInfo.awayTeam.name}
+            width={32}
+            height={32}
+          />
+        </Box>
         <Stack direction="row" spacing={1} alignItems="flex-start">
           <Stack spacing={0} alignItems="center">
             <Typography variant="body1">{gameInfo.awayTeam.name}</Typography>
@@ -115,15 +117,14 @@ export default function GameInfo({ gameInfo }: GameInfoCardProps) {
             </Typography>
           </Stack>
         </Stack>
-        {/* <Typography variant="body1">
-          {gameInfo.awayTeam.name} @ {gameInfo.homeTeam.name}
-        </Typography> */}
-        <Image
-          src={getTeamLogo(gameInfo.homeTeam.abbreviation)}
-          alt={gameInfo.homeTeam.name}
-          width={32}
-          height={32}
-        />
+        <Box>
+          <Image
+            src={getTeamLogo(gameInfo.homeTeam.abbreviation)}
+            alt={gameInfo.homeTeam.name}
+            width={32}
+            height={32}
+          />
+        </Box>
       </Stack>
     </Stack>
   );
