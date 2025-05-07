@@ -19,7 +19,6 @@ export const data: GamedayReport = {
       wins: 16,
       losses: 18,
     },
-    matchupString: 'Blue Jays @ Angels - 9:38pm',
     isJaysHome: false,
   },
   teamStats: {

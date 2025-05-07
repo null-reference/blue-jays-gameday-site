@@ -51,7 +51,6 @@ export interface GamedayReport {
     gameTimeStr: string; // Formatted time string e.g., "1:07pm"
     homeTeam: TeamSummary;
     awayTeam: TeamSummary;
-    matchupString: string; // e.g., "Braves @ Blue Jays - 1:07pm"
     isJaysHome: boolean;
   };
   teamStats: {
