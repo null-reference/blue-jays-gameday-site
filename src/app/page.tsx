@@ -23,7 +23,6 @@ export default async function Index() {
   }
 
   // TODO: make stats into tables where applicable
-  // TODO: add team wins/losses to game info
   // TODO: add quick links to navigate to a section of the page (dropdown?)
 
   // NOTE: anytime we add a new stat to the report, we need to consider it here
