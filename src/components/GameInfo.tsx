@@ -103,7 +103,7 @@ export default function GameInfo({ gameInfo }: GameInfoCardProps) {
         <Stack direction="row" spacing={1} alignItems="flex-start">
           <Stack spacing={0} alignItems="center">
             <Typography variant="body1">{gameInfo.awayTeam.name}</Typography>
-            <Typography variant="caption">
+            <Typography variant="body2">
               {gameInfo.awayTeam.wins} - {gameInfo.awayTeam.losses}
             </Typography>
           </Stack>
@@ -112,7 +112,7 @@ export default function GameInfo({ gameInfo }: GameInfoCardProps) {
           </Box>
           <Stack spacing={0} alignItems="center">
             <Typography variant="body1">{gameInfo.homeTeam.name}</Typography>
-            <Typography variant="caption">
+            <Typography variant="body2">
               {gameInfo.homeTeam.wins} - {gameInfo.homeTeam.losses}
             </Typography>
           </Stack>
