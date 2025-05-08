@@ -48,14 +48,14 @@ export default async function Index() {
       <Divider sx={{ py: 1, borderColor: 'grey.500' }} variant="fullWidth" />
 
       <RankingsCard
-        title="2+ Rbi Games"
+        title="2+ RBI Games"
         data={report.rankings.twoPlusRbiGames}
         hotPlayers={hotPlayers}
       />
       <Divider sx={{ py: 1, borderColor: 'grey.500' }} variant="fullWidth" />
 
       <RankingsCard
-        title="3+ Rbi Games"
+        title="3+ RBI Games"
         data={report.rankings.threePlusRbiGames}
         hotPlayers={hotPlayers}
       />
