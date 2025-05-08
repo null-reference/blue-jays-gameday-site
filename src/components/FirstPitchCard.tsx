@@ -58,7 +58,7 @@ export default function FirstPitchCard({ firstPitch }: FirstPitchCardProps) {
           <Table size="small" aria-label="first pitch table">
             <TableHead>
               <TableRow>
-                <TableCell sx={{ fontWeight: 'bold' }}></TableCell>
+                <TableCell sx={{ fontWeight: 'bold' }}>Stat</TableCell>
                 <TableCell align="right" sx={{ fontWeight: 'bold' }}>
                   L10
                 </TableCell>
