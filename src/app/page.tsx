@@ -24,6 +24,7 @@ export default async function Index() {
 
   // TODO: make stats into tables where applicable
   // TODO: add quick links to navigate to a section of the page (dropdown?)
+  // TODO: add more blue jays colours to tables
 
   const hotPlayers = report.hotPlayers.map((player) => player.playerId);
 
@@ -45,6 +46,19 @@ export default async function Index() {
       <Divider sx={{ py: 1, borderColor: 'grey.500' }} variant="fullWidth" />
 
       <RankingsCard title="Homeruns" data={report.rankings.homeruns} hotPlayers={hotPlayers} />
+      <Divider sx={{ py: 1, borderColor: 'grey.500' }} variant="fullWidth" />
+
+      <RankingsCard title="Doubles" data={report.rankings.doubles} hotPlayers={hotPlayers} />
+      <Divider sx={{ py: 1, borderColor: 'grey.500' }} variant="fullWidth" />
+
+      <RankingsCard title="Triples" data={report.rankings.triples} hotPlayers={hotPlayers} />
+      <Divider sx={{ py: 1, borderColor: 'grey.500' }} variant="fullWidth" />
+
+      <RankingsCard
+        title="Stolen Bases"
+        data={report.rankings.stolenBases}
+        hotPlayers={hotPlayers}
+      />
       <Divider sx={{ py: 1, borderColor: 'grey.500' }} variant="fullWidth" />
 
       <RankingsCard
@@ -69,13 +83,6 @@ export default async function Index() {
       <Divider sx={{ py: 1, borderColor: 'grey.500' }} variant="fullWidth" />
 
       <RankingsCard
-        title="2+ Base Games"
-        data={report.rankings.twoPlusBaseGames}
-        hotPlayers={hotPlayers}
-      />
-      <Divider sx={{ py: 1, borderColor: 'grey.500' }} variant="fullWidth" />
-
-      <RankingsCard
         title="3+ Hit Games"
         data={report.rankings.threePlusHitGames}
         hotPlayers={hotPlayers}
@@ -83,21 +90,15 @@ export default async function Index() {
       <Divider sx={{ py: 1, borderColor: 'grey.500' }} variant="fullWidth" />
 
       <RankingsCard
-        title="3+ Base Games"
-        data={report.rankings.threePlusBaseGames}
+        title="2+ Base Games"
+        data={report.rankings.twoPlusBaseGames}
         hotPlayers={hotPlayers}
       />
       <Divider sx={{ py: 1, borderColor: 'grey.500' }} variant="fullWidth" />
 
-      <RankingsCard title="Doubles" data={report.rankings.doubles} hotPlayers={hotPlayers} />
-      <Divider sx={{ py: 1, borderColor: 'grey.500' }} variant="fullWidth" />
-
-      <RankingsCard title="Triples" data={report.rankings.triples} hotPlayers={hotPlayers} />
-      <Divider sx={{ py: 1, borderColor: 'grey.500' }} variant="fullWidth" />
-
       <RankingsCard
-        title="Stolen Bases"
-        data={report.rankings.stolenBases}
+        title="3+ Base Games"
+        data={report.rankings.threePlusBaseGames}
         hotPlayers={hotPlayers}
       />
     </Stack>
