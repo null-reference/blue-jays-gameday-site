@@ -24,7 +24,6 @@ export default async function Index() {
 
   // TODO: make stats into tables where applicable
   // TODO: add quick links to navigate to a section of the page (dropdown?)
-  // TODO: add more blue jays colours to tables
 
   const hotPlayers = report.hotPlayers.map((player) => player.playerId);
 

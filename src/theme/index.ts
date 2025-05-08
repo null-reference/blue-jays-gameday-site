@@ -4,13 +4,14 @@ import { createTheme } from '@mui/material/styles';
 const theme = createTheme({
   palette: {
     primary: {
-      main: 'rgba(19, 74, 142, 1)', // blue
-      light: 'rgba(0, 107, 166, 1)',
+      main: 'rgba(19, 74, 142, 1)', // blue jays primary blue
+      light: 'rgba(0, 107, 166, 1)', // blue jays light blue
       dark: 'rgb(29, 45, 92)', // navy blue
       contrastText: 'rgba(255, 255, 255, 1)',
     },
     secondary: {
-      main: 'rgb(203, 41, 28, 1)', // red
+      // main: 'rgb(203, 41, 28, 1)', // blue jays red
+      main: 'rgba(128, 176, 216, 1)', // blue jays baby blue
       contrastText: 'rgb(255, 255, 255, 1)',
     },
     text: {
@@ -101,6 +102,9 @@ const theme = createTheme({
       case: 'uppercase',
     },
   },
+});
+
+const themeWithComponents = createTheme(theme, {
   components: {
     MuiButton: {
       defaultProps: {
@@ -125,10 +129,37 @@ const theme = createTheme({
         },
       },
     },
+    MuiTableContainer: {
+      styleOverrides: {
+        root: {
+          border: '1px solid',
+          borderColor: theme.palette.primary.light,
+          '&.MuiPaper-outlined': {
+            border: '1px solid',
+            borderColor: theme.palette.primary.light,
+          },
+        },
+      },
+    },
+    MuiTableHead: {
+      styleOverrides: {
+        root: {
+          backgroundColor: theme.palette.primary.light,
+        },
+      },
+    },
+    MuiTableCell: {
+      styleOverrides: {
+        head: {
+          color: theme.palette.primary.contrastText,
+          fontWeight: 'bold',
+        },
+      },
+    },
   },
 });
 
-const responsiveTheme = createTheme(theme, {
+const responsiveTheme = createTheme(themeWithComponents, {
   components: {
     MuiTypography: {
       styleOverrides: {

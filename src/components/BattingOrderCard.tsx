@@ -31,9 +31,9 @@ export default function BattingOrderCard({ battingOrder, hotPlayers }: BattingOr
         Starting Lineup
       </Typography>
 
-      <TableContainer component={Paper} elevation={0} variant="outlined">
+      <TableContainer component={Paper} elevation={0}>
         <Table size="small" aria-label="batting order table">
-          <TableHead sx={{ backgroundColor: 'grey.100' }}>
+          <TableHead>
             <TableRow>
               <TableCell sx={{ fontWeight: 'bold' }}>#</TableCell>
               <TableCell sx={{ fontWeight: 'bold' }}>Player</TableCell>

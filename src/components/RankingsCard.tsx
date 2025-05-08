@@ -35,9 +35,9 @@ export default function RankingsCard({ title, data, hotPlayers }: RankingsCardPr
         {title}
       </Typography>
 
-      <TableContainer component={Paper} elevation={0} variant="outlined">
+      <TableContainer component={Paper} elevation={0}>
         <Table size="small" aria-label={`${title} table`}>
-          <TableHead sx={{ backgroundColor: 'grey.100' }}>
+          <TableHead>
             <TableRow>
               <TableCell sx={{ fontWeight: 'bold' }}>Player</TableCell>
               <TableCell align="right" sx={{ fontWeight: 'bold' }}>

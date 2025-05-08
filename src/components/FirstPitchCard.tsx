@@ -54,9 +54,9 @@ export default function FirstPitchCard({ firstPitch }: FirstPitchCardProps) {
         <Typography variant="body1" gutterBottom>
           Leading off: <strong>{firstPitch?.lastName ?? 'N/A'}</strong>
         </Typography>
-        <TableContainer component={Paper} elevation={0} variant="outlined">
+        <TableContainer component={Paper} elevation={0}>
           <Table size="small" aria-label="first pitch table">
-            <TableHead sx={{ backgroundColor: 'grey.100' }}>
+            <TableHead>
               <TableRow>
                 <TableCell sx={{ fontWeight: 'bold' }}></TableCell>
                 <TableCell align="right" sx={{ fontWeight: 'bold' }}>
