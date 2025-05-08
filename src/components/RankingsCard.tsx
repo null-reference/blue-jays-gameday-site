@@ -10,69 +10,13 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { RankedBatterStatSummary } from '@/shared/gameday-api/types';
+import { TrendingIcon } from './shared/TrendingIcon';
 
 interface RankingsCardProps {
   title: string;
   data: RankedBatterStatSummary[]; // Use one type, they are structurally identical
   hotPlayers: number[];
 }
-
-const TrendingIcon = ({ trend }: { trend: 'up' | 'down' | 'neutral' }) => {
-  if (trend === 'up') {
-    return (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        color="green"
-      >
-        <path d="m5 12 7-7 7 7" />
-        <path d="M12 19V5" />
-      </svg>
-    );
-  } else if (trend === 'down') {
-    return (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        color="red"
-      >
-        <path d="M12 5v14" />
-        <path d="m19 12-7 7-7-7" />
-      </svg>
-    );
-  }
-
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      color="grey"
-    >
-      <path d="M5 12h14" />
-    </svg>
-  );
-};
 
 export default function RankingsCard({ title, data, hotPlayers }: RankingsCardProps) {
   // Filter out players with 0 in both L10 and Season for stolen bases
@@ -95,9 +39,6 @@ export default function RankingsCard({ title, data, hotPlayers }: RankingsCardPr
         <Table size="small" aria-label={`${title} table`}>
           <TableHead sx={{ backgroundColor: 'grey.100' }}>
             <TableRow>
-              <TableCell align="center" sx={{ px: 0, width: '40px' }}>
-                {' '}
-              </TableCell>
               <TableCell sx={{ fontWeight: 'bold' }}>Player</TableCell>
               <TableCell align="right" sx={{ fontWeight: 'bold' }}>
                 L10
@@ -113,13 +54,6 @@ export default function RankingsCard({ title, data, hotPlayers }: RankingsCardPr
                 key={player.lastName}
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
               >
-                {/* https://lucide.dev/icons/arrow-up */}
-                <TableCell
-                  align="center"
-                  sx={{ px: 0, display: 'flex', flexDirection: 'column', alignItems: 'center' }}
-                >
-                  <TrendingIcon trend={player.trending} />
-                </TableCell>
                 <TableCell component="th" scope="row">
                   {player.lastName}
                   {hotPlayers.includes(player.playerId) && (
@@ -128,7 +62,10 @@ export default function RankingsCard({ title, data, hotPlayers }: RankingsCardPr
                     </Box>
                   )}
                 </TableCell>
-                <TableCell align="right">{player.statLast10}</TableCell>
+                <TableCell align="right" sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
+                  <TrendingIcon trend={player.trending} />
+                  <Box component="span">{player.statLast10}</Box>
+                </TableCell>
                 <TableCell align="right">{player.statSeason}</TableCell>
               </TableRow>
             ))}

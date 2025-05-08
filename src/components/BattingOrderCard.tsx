@@ -10,6 +10,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { BattingOrderBatterSummary } from '@/shared/gameday-api/types';
+import { TrendingIcon } from './shared/TrendingIcon';
 
 interface BattingOrderCardProps {
   battingOrder: BattingOrderBatterSummary[];
@@ -21,66 +22,6 @@ const formatAvg = (avg: number): string => {
   if (avg === 0) return '.000';
   if (avg === 1) return '1.000';
   return avg.toFixed(3).substring(1); // Format as .XXX
-};
-
-const TrendingIcon = ({ trend }: { trend: 'up' | 'down' | 'neutral' }) => {
-  const width = 16;
-  const height = 16;
-
-  if (trend === 'up') {
-    return (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width={width}
-        height={height}
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        color="green"
-      >
-        <path d="m5 12 7-7 7 7" />
-        <path d="M12 19V5" />
-      </svg>
-    );
-  } else if (trend === 'down') {
-    return (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width={width}
-        height={height}
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        color="red"
-      >
-        <path d="M12 5v14" />
-        <path d="m19 12-7 7-7-7" />
-      </svg>
-    );
-  }
-
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width={width}
-      height={height}
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      color="grey"
-    >
-      <path d="M5 12h14" />
-    </svg>
-  );
 };
 
 export default function BattingOrderCard({ battingOrder, hotPlayers }: BattingOrderCardProps) {
