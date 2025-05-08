@@ -14,7 +14,7 @@ const formatPitcherStat = (pitcher: GamedayReport['pitchers']['home']) => {
   if (!pitcher) {
     return 'N/A';
   }
-  return `${pitcher.name} (${pitcher.wins}-${pitcher.losses} | ${pitcher.era} era)`;
+  return `${pitcher.lastName} (${pitcher.wins}-${pitcher.losses} | ${pitcher.era} era)`;
 };
 
 export default function PitcherMatchupCard({ pitchers, gameInfo }: PitcherMatchupCardProps) {
