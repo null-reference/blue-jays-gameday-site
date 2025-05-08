@@ -107,14 +107,14 @@ export default function BattingOrderCard({ battingOrder, hotPlayers }: BattingOr
           <TableBody>
             {battingOrder.map((batter) => (
               <TableRow
-                key={batter.name}
+                key={batter.lastName}
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
               >
                 <TableCell component="th" scope="row">
                   {batter.battingOrder}
                 </TableCell>
                 <TableCell>
-                  {batter.name}
+                  {batter.lastName}
                   {hotPlayers.includes(batter.playerId) && (
                     <Box component="span" sx={{ pl: 0.25 }}>
                       🔥

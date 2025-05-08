@@ -25,76 +25,7 @@ export default async function Index() {
   // TODO: make stats into tables where applicable
   // TODO: add quick links to navigate to a section of the page (dropdown?)
 
-  // NOTE: anytime we add a new stat to the report, we need to consider it here
-  //       where we are determining the top trending players
-  const playersTrendingUpHomeruns = report.rankings.homeruns
-    .filter((player) => player.trending === 'up')
-    .map((player) => player.playerId);
-  const playersTrendingUpTwoPlusRbiGames = report.rankings.twoPlusRbiGames
-    .filter((player) => player.trending === 'up')
-    .map((player) => player.playerId);
-  const playersTrendingUpThreePlusRbiGames = report.rankings.threePlusRbiGames
-    .filter((player) => player.trending === 'up')
-    .map((player) => player.playerId);
-  const playersTrendingUpTwoPlusHitGames = report.rankings.twoPlusHitGames
-    .filter((player) => player.trending === 'up')
-    .map((player) => player.playerId);
-  const playersTrendingUpTwoPlusBaseGames = report.rankings.twoPlusBaseGames
-    .filter((player) => player.trending === 'up')
-    .map((player) => player.playerId);
-  const playersTrendingUpThreePlusHitGames = report.rankings.threePlusHitGames
-    .filter((player) => player.trending === 'up')
-    .map((player) => player.playerId);
-  const playersTrendingUpThreePlusBaseGames = report.rankings.threePlusBaseGames
-    .filter((player) => player.trending === 'up')
-    .map((player) => player.playerId);
-  const playersTrendingUpDoubles = report.rankings.doubles
-    .filter((player) => player.trending === 'up')
-    .map((player) => player.playerId);
-  const playersTrendingUpTriples = report.rankings.triples
-    .filter((player) => player.trending === 'up')
-    .map((player) => player.playerId);
-  const playersTrendingUpStolenBases = report.rankings.stolenBases
-    .filter((player) => player.trending === 'up')
-    .map((player) => player.playerId);
-
-  const allTrendingUpPlayers = [
-    ...playersTrendingUpHomeruns,
-    ...playersTrendingUpTwoPlusRbiGames,
-    ...playersTrendingUpThreePlusRbiGames,
-    ...playersTrendingUpTwoPlusHitGames,
-    ...playersTrendingUpTwoPlusBaseGames,
-    ...playersTrendingUpThreePlusHitGames,
-    ...playersTrendingUpThreePlusBaseGames,
-    ...playersTrendingUpDoubles,
-    ...playersTrendingUpTriples,
-    ...playersTrendingUpStolenBases,
-  ];
-
-  const playerTrendCounts: Record<number, number> = {};
-  for (const playerId of allTrendingUpPlayers) {
-    playerTrendCounts[playerId] = (playerTrendCounts[playerId] || 0) + 1;
-  }
-
-  const topTrendingPlayers = Object.entries(playerTrendCounts)
-    .sort((a, b) => b[1] - a[1])
-    .map(([playerId, count]) => ({ playerId: parseInt(playerId), count }));
-
-  // Get the top N trending players (account for ties)
-  const N = 2;
-  const result: { playerId: number; count: number }[] = [];
-
-  for (const player of topTrendingPlayers) {
-    if (result.length < N) {
-      result.push(player);
-    } else if (player.count === result[result.length - 1].count) {
-      result.push(player);
-    } else {
-      break;
-    }
-  }
-
-  const topNTrendingPlayers = result.map((p) => p.playerId);
+  const hotPlayers = report.hotPlayers.map((player) => player.playerId);
 
   return (
     <Stack spacing={2} width="100%" paddingY={4}>
@@ -107,79 +38,67 @@ export default async function Index() {
       <PitcherMatchupCard pitchers={report.pitchers} gameInfo={report.gameInfo} />
       <Divider sx={{ py: 1, borderColor: 'grey.500' }} variant="fullWidth" />
 
-      <BattingOrderCard battingOrder={report.battingOrder} hotPlayers={topNTrendingPlayers} />
+      <BattingOrderCard battingOrder={report.battingOrder} hotPlayers={hotPlayers} />
       <Divider sx={{ py: 1, borderColor: 'grey.500' }} variant="fullWidth" />
 
       <FirstPitchCard firstPitch={report.firstPitch} />
       <Divider sx={{ py: 1, borderColor: 'grey.500' }} variant="fullWidth" />
 
-      <RankingsCard
-        title="Homeruns"
-        data={report.rankings.homeruns}
-        hotPlayers={topNTrendingPlayers}
-      />
+      <RankingsCard title="Homeruns" data={report.rankings.homeruns} hotPlayers={hotPlayers} />
       <Divider sx={{ py: 1, borderColor: 'grey.500' }} variant="fullWidth" />
 
       <RankingsCard
         title="2+ Rbi Games"
         data={report.rankings.twoPlusRbiGames}
-        hotPlayers={topNTrendingPlayers}
+        hotPlayers={hotPlayers}
       />
       <Divider sx={{ py: 1, borderColor: 'grey.500' }} variant="fullWidth" />
 
       <RankingsCard
         title="3+ Rbi Games"
         data={report.rankings.threePlusRbiGames}
-        hotPlayers={topNTrendingPlayers}
+        hotPlayers={hotPlayers}
       />
       <Divider sx={{ py: 1, borderColor: 'grey.500' }} variant="fullWidth" />
 
       <RankingsCard
         title="2+ Hit Games"
         data={report.rankings.twoPlusHitGames}
-        hotPlayers={topNTrendingPlayers}
+        hotPlayers={hotPlayers}
       />
       <Divider sx={{ py: 1, borderColor: 'grey.500' }} variant="fullWidth" />
 
       <RankingsCard
         title="2+ Base Games"
         data={report.rankings.twoPlusBaseGames}
-        hotPlayers={topNTrendingPlayers}
+        hotPlayers={hotPlayers}
       />
       <Divider sx={{ py: 1, borderColor: 'grey.500' }} variant="fullWidth" />
 
       <RankingsCard
         title="3+ Hit Games"
         data={report.rankings.threePlusHitGames}
-        hotPlayers={topNTrendingPlayers}
+        hotPlayers={hotPlayers}
       />
       <Divider sx={{ py: 1, borderColor: 'grey.500' }} variant="fullWidth" />
 
       <RankingsCard
         title="3+ Base Games"
         data={report.rankings.threePlusBaseGames}
-        hotPlayers={topNTrendingPlayers}
+        hotPlayers={hotPlayers}
       />
       <Divider sx={{ py: 1, borderColor: 'grey.500' }} variant="fullWidth" />
 
-      <RankingsCard
-        title="Doubles"
-        data={report.rankings.doubles}
-        hotPlayers={topNTrendingPlayers}
-      />
+      <RankingsCard title="Doubles" data={report.rankings.doubles} hotPlayers={hotPlayers} />
       <Divider sx={{ py: 1, borderColor: 'grey.500' }} variant="fullWidth" />
 
-      <RankingsCard
-        title="Triples"
-        data={report.rankings.triples}
-        hotPlayers={topNTrendingPlayers}
-      />
+      <RankingsCard title="Triples" data={report.rankings.triples} hotPlayers={hotPlayers} />
       <Divider sx={{ py: 1, borderColor: 'grey.500' }} variant="fullWidth" />
 
       <RankingsCard
         title="Stolen Bases"
         data={report.rankings.stolenBases}
-        hotPlayers={topNTrendingPlayers}
+        hotPlayers={hotPlayers}
       />
     </Stack>
   );

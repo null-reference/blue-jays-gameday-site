@@ -10,7 +10,7 @@ export interface TeamSummary {
 // Represents summary pitcher info
 export interface PitcherSummary {
   playerId: number;
-  name: string; // Last name
+  lastName: string;
   wins: number;
   losses: number;
   era: string; // Keep as string since it can be "--.--"
@@ -20,7 +20,7 @@ export interface PitcherSummary {
 export interface BattingOrderBatterSummary {
   battingOrder: number;
   playerId: number;
-  name: string; // Last name
+  lastName: string;
   avgLast10: number; // Raw decimal
   avgSeason: number; // Raw decimal
   avgLast10Trending: 'up' | 'down' | 'neutral';
@@ -37,7 +37,7 @@ export interface FirstPitchSummaryStats {
 // Represents a ranked batter with specific stats
 export interface RankedBatterStatSummary {
   playerId: number;
-  name: string; // Last name
+  lastName: string;
   statLast10: number;
   statSeason: number;
   trending: 'up' | 'down' | 'neutral';
@@ -82,7 +82,7 @@ export interface GamedayReport {
   battingOrder: BattingOrderBatterSummary[]; // Sorted by batting order
   firstPitch: {
     playerId: number;
-    batterName: string; // Last name
+    lastName: string;
     last10: FirstPitchSummaryStats | null;
     season: FirstPitchSummaryStats;
   } | null; // Can be null if leadoff not found
@@ -99,4 +99,8 @@ export interface GamedayReport {
     triples: RankedBatterStatSummary[]; // Sorted
     stolenBases: RankedBatterStatSummary[]; // Sorted
   };
+  hotPlayers: {
+    playerId: number;
+    lastName: string;
+  }[];
 }

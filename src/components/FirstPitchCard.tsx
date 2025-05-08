@@ -52,7 +52,7 @@ export default function FirstPitchCard({ firstPitch }: FirstPitchCardProps) {
 
       <Stack spacing={2}>
         <Typography variant="body1" gutterBottom>
-          Leading off: <strong>{firstPitch?.batterName ?? 'N/A'}</strong>
+          Leading off: <strong>{firstPitch?.lastName ?? 'N/A'}</strong>
         </Typography>
         <TableContainer component={Paper} elevation={0} variant="outlined">
           <Table size="small" aria-label="first pitch table">

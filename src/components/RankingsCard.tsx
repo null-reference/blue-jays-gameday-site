@@ -110,7 +110,7 @@ export default function RankingsCard({ title, data, hotPlayers }: RankingsCardPr
           <TableBody>
             {filteredData.map((player) => (
               <TableRow
-                key={player.name}
+                key={player.lastName}
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
               >
                 {/* https://lucide.dev/icons/arrow-up */}
@@ -121,7 +121,7 @@ export default function RankingsCard({ title, data, hotPlayers }: RankingsCardPr
                   <TrendingIcon trend={player.trending} />
                 </TableCell>
                 <TableCell component="th" scope="row">
-                  {player.name}
+                  {player.lastName}
                   {hotPlayers.includes(player.playerId) && (
                     <Box component="span" sx={{ pl: 0.25 }}>
                       🔥
