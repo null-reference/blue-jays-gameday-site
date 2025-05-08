@@ -21,8 +21,6 @@ export const metadata: Metadata = {
   description: 'Distilled statistics for the Boys in Blue.',
 };
 
-// TODO: sd - low priority - an error boundary for the app router
-
 export default function RootLayout({
   children,
 }: Readonly<{
