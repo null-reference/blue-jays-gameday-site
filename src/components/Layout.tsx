@@ -16,9 +16,6 @@ export default async function Layout({
       overflow="hidden"
       paddingX={1}
       paddingY={3}
-      sx={{
-        backgroundColor: 'background.default',
-      }}
     >
       <BlueJaysLogo />
       <Page>{children}</Page>

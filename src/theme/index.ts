@@ -160,6 +160,9 @@ const themeWithComponents = createTheme(theme, {
     },
     MuiTableCell: {
       styleOverrides: {
+        root: {
+          borderBottom: `1px solid ${theme.palette.background.default}`,
+        },
         head: {
           color: theme.palette.primary.contrastText,
           fontWeight: 'bold',

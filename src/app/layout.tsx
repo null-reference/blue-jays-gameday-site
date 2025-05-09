@@ -14,7 +14,7 @@ const publicSans = Public_Sans({
 });
 
 import Layout from '@/components/Layout';
-import { CssBaseline } from '@mui/material';
+import { Box, CssBaseline } from '@mui/material';
 
 export const metadata: Metadata = {
   title: 'Blue Jays Gameday',
@@ -89,7 +89,11 @@ export default function RootLayout({
           })();
         `}
       </Script>
-      <body className={`antialiased`}>
+      <Box
+        component="body"
+        className={`antialiased`}
+        sx={{ backgroundColor: 'rgba(128, 176, 216, 0.2)' }}
+      >
         <AppRouterCacheProvider>
           {/* https://mui.com/material-ui/react-css-baseline/#global-reset */}
           <CssBaseline />
@@ -98,7 +102,7 @@ export default function RootLayout({
             <Layout>{children}</Layout>
           </ThemeProvider>
         </AppRouterCacheProvider>
-      </body>
+      </Box>
     </html>
   );
 }
