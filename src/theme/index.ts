@@ -23,7 +23,7 @@ const theme = createTheme({
       500: 'rgb(177, 179, 179, 1)', // blue jays gray
     },
     background: {
-      default: 'rgba(128, 176, 216, 1)', // blue jays baby blue
+      default: 'rgba(255, 255, 255, 1)',
       paper: 'rgba(255, 255, 255, 1)',
     },
     divider: 'rgba(145, 158, 171, 0.2)',
