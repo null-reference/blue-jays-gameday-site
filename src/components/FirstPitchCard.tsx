@@ -69,10 +69,7 @@ export default function FirstPitchCard({ firstPitch }: FirstPitchCardProps) {
             </TableHead>
             <TableBody>
               {stats.map((stat) => (
-                <TableRow
-                  key={stat.name}
-                  sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                >
+                <TableRow key={stat.name}>
                   <TableCell component="th" scope="row">
                     {stat.name}
                   </TableCell>

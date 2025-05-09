@@ -148,6 +148,15 @@ const themeWithComponents = createTheme(theme, {
         },
       },
     },
+    MuiTableRow: {
+      styleOverrides: {
+        root: {
+          '&:last-child td, &:last-child th': {
+            border: 0,
+          },
+        },
+      },
+    },
     MuiTableCell: {
       styleOverrides: {
         head: {

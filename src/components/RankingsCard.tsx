@@ -50,10 +50,7 @@ export default function RankingsCard({ title, data, hotPlayers }: RankingsCardPr
           </TableHead>
           <TableBody>
             {filteredData.map((player) => (
-              <TableRow
-                key={player.lastName}
-                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-              >
+              <TableRow key={player.lastName}>
                 <TableCell component="th" scope="row">
                   {player.lastName}
                   {hotPlayers.includes(player.playerId) && (
