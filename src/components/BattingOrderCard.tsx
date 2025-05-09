@@ -59,9 +59,18 @@ export default function BattingOrderCard({ battingOrder, hotPlayers }: BattingOr
                     </Box>
                   )}
                 </TableCell>
-                <TableCell align="right" sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
-                  <TrendingIcon trend={batter.avgLast10Trending} />
-                  <Box component="span">{formatAvg(batter.avgLast10)}</Box>
+                <TableCell align="right">
+                  <Box
+                    sx={{
+                      display: 'flex',
+                      flexDirection: 'row-reverse',
+                      alignItems: 'center',
+                      gap: 0.5,
+                    }}
+                  >
+                    <TrendingIcon trend={batter.avgLast10Trending} />
+                    <Box component="span">{formatAvg(batter.avgLast10)}</Box>
+                  </Box>
                 </TableCell>
                 <TableCell align="right">{formatAvg(batter.avgSeason)}</TableCell>
               </TableRow>
