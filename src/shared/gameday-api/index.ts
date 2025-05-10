@@ -5,7 +5,7 @@ const logger = new Logger({
   prefix: 'gameday-api',
 });
 
-export const getLatestGamedayReport = async (): Promise<GamedayReport | null> => {
+export const getLatestGamedayReport = async (): Promise<GamedayReport> => {
   logger.debug('getting latest gameday report');
 
   const res = await fetch(`${process.env.BLUEJAYS_GAMEDAY_API_URL}/api/v1/gameday-report/latest`, {
@@ -15,10 +15,6 @@ export const getLatestGamedayReport = async (): Promise<GamedayReport | null> =>
       'api-key': process.env.BLUEJAYS_GAMEDAY_API_KEY || '',
     },
   });
-
-  if (res.status === 404) {
-    return null;
-  }
 
   if (!res.ok) {
     throw new Error('failed to get gameday report');
