@@ -30,6 +30,9 @@ export default function RankingsCard({ title, data, hotPlayers, coldPlayers }: R
     return null;
   }
 
+  const isHotPlayer = (playerId: number) => hotPlayers.includes(playerId);
+  const isColdPlayer = (playerId: number) => coldPlayers.includes(playerId);
+
   return (
     <Stack spacing={3} padding={{ xs: 2, sm: 3 }}>
       <Typography variant="h5" gutterBottom>
@@ -54,12 +57,12 @@ export default function RankingsCard({ title, data, hotPlayers, coldPlayers }: R
               <TableRow key={player.lastName}>
                 <TableCell component="th" scope="row">
                   {player.lastName}
-                  {hotPlayers.includes(player.playerId) && (
+                  {isHotPlayer(player.playerId) && (
                     <Box component="span" sx={{ pl: 0.25 }}>
                       🔥
                     </Box>
                   )}
-                  {coldPlayers.includes(player.playerId) && (
+                  {!isHotPlayer(player.playerId) && isColdPlayer(player.playerId) && (
                     <Box component="span" sx={{ pl: 0.25 }}>
                       ❄️
                     </Box>

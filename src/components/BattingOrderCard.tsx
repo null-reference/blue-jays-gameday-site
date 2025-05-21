@@ -30,6 +30,9 @@ export default function BattingOrderCard({
   hotPlayers,
   coldPlayers,
 }: BattingOrderCardProps) {
+  const isHotPlayer = (playerId: number) => hotPlayers.includes(playerId);
+  const isColdPlayer = (playerId: number) => coldPlayers.includes(playerId);
+
   return (
     <Stack spacing={3} padding={{ xs: 2, sm: 3 }}>
       <Typography variant="h5" gutterBottom>
@@ -58,12 +61,12 @@ export default function BattingOrderCard({
                 </TableCell>
                 <TableCell>
                   {batter.lastName}
-                  {hotPlayers.includes(batter.playerId) && (
+                  {isHotPlayer(batter.playerId) && (
                     <Box component="span" sx={{ pl: 0.25 }}>
                       🔥
                     </Box>
                   )}
-                  {coldPlayers.includes(batter.playerId) && (
+                  {!isHotPlayer(batter.playerId) && isColdPlayer(batter.playerId) && (
                     <Box component="span" sx={{ pl: 0.25 }}>
                       ❄️
                     </Box>
