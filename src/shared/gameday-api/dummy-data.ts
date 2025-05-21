@@ -894,4 +894,14 @@ export const data: GamedayReport = {
       lastName: 'Kirk',
     },
   ],
+  coldPlayers: [
+    {
+      playerId: 623993,
+      lastName: 'Santander',
+    },
+    {
+      playerId: 665489,
+      lastName: 'Guerrero Jr.',
+    },
+  ],
 };
