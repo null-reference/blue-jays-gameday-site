@@ -102,4 +102,8 @@ export interface GamedayReport {
     playerId: number;
     lastName: string;
   }[];
+  coldPlayers: {
+    playerId: number;
+    lastName: string;
+  }[];
 }

@@ -23,6 +23,7 @@ export default function GamedayReport({ report }: GamedayReportProps) {
   // TODO: add quick links to navigate to a section of the page (dropdown?)
 
   const hotPlayers = report.hotPlayers.map((player) => player.playerId);
+  const coldPlayers = report.coldPlayers.map((player) => player.playerId);
 
   return (
     <Stack spacing={2} width="100%" paddingY={4}>
@@ -35,25 +36,45 @@ export default function GamedayReport({ report }: GamedayReportProps) {
       <PitcherMatchupCard pitchers={report.pitchers} gameInfo={report.gameInfo} />
       <FullWidthDivider />
 
-      <BattingOrderCard battingOrder={report.battingOrder} hotPlayers={hotPlayers} />
+      <BattingOrderCard
+        battingOrder={report.battingOrder}
+        hotPlayers={hotPlayers}
+        coldPlayers={coldPlayers}
+      />
       <FullWidthDivider />
 
       <FirstPitchCard firstPitch={report.firstPitch} />
       <FullWidthDivider />
 
-      <RankingsCard title="Homeruns" data={report.rankings.homeruns} hotPlayers={hotPlayers} />
+      <RankingsCard
+        title="Homeruns"
+        data={report.rankings.homeruns}
+        hotPlayers={hotPlayers}
+        coldPlayers={coldPlayers}
+      />
       <FullWidthDivider />
 
-      <RankingsCard title="Doubles" data={report.rankings.doubles} hotPlayers={hotPlayers} />
+      <RankingsCard
+        title="Doubles"
+        data={report.rankings.doubles}
+        hotPlayers={hotPlayers}
+        coldPlayers={coldPlayers}
+      />
       <FullWidthDivider />
 
-      <RankingsCard title="Triples" data={report.rankings.triples} hotPlayers={hotPlayers} />
+      <RankingsCard
+        title="Triples"
+        data={report.rankings.triples}
+        hotPlayers={hotPlayers}
+        coldPlayers={coldPlayers}
+      />
       <FullWidthDivider />
 
       <RankingsCard
         title="Stolen Bases"
         data={report.rankings.stolenBases}
         hotPlayers={hotPlayers}
+        coldPlayers={coldPlayers}
       />
       <FullWidthDivider />
 
@@ -61,6 +82,7 @@ export default function GamedayReport({ report }: GamedayReportProps) {
         title="2+ RBI Games"
         data={report.rankings.twoPlusRbiGames}
         hotPlayers={hotPlayers}
+        coldPlayers={coldPlayers}
       />
       <FullWidthDivider />
 
@@ -68,6 +90,7 @@ export default function GamedayReport({ report }: GamedayReportProps) {
         title="3+ RBI Games"
         data={report.rankings.threePlusRbiGames}
         hotPlayers={hotPlayers}
+        coldPlayers={coldPlayers}
       />
       <FullWidthDivider />
 
@@ -75,6 +98,7 @@ export default function GamedayReport({ report }: GamedayReportProps) {
         title="2+ Hit Games"
         data={report.rankings.twoPlusHitGames}
         hotPlayers={hotPlayers}
+        coldPlayers={coldPlayers}
       />
       <FullWidthDivider />
 
@@ -82,6 +106,7 @@ export default function GamedayReport({ report }: GamedayReportProps) {
         title="3+ Hit Games"
         data={report.rankings.threePlusHitGames}
         hotPlayers={hotPlayers}
+        coldPlayers={coldPlayers}
       />
       <FullWidthDivider />
 
@@ -89,6 +114,7 @@ export default function GamedayReport({ report }: GamedayReportProps) {
         title="2+ Base Games"
         data={report.rankings.twoPlusBaseGames}
         hotPlayers={hotPlayers}
+        coldPlayers={coldPlayers}
       />
       <FullWidthDivider />
 
@@ -96,6 +122,7 @@ export default function GamedayReport({ report }: GamedayReportProps) {
         title="3+ Base Games"
         data={report.rankings.threePlusBaseGames}
         hotPlayers={hotPlayers}
+        coldPlayers={coldPlayers}
       />
     </Stack>
   );

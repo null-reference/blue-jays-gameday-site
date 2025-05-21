@@ -5,9 +5,7 @@ import { getLatestGamedayReport } from '@/shared/gameday-api';
 export const dynamic = 'force-dynamic';
 
 // TODO: bunch of items...
-// - hot players...require at least 10 games before assessing
 // - start tracking ops
-// - add a cold players list
 // - legend explaining trending icons and fire icon
 // - collapsible sections
 // - player first names

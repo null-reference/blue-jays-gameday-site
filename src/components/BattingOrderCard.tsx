@@ -15,6 +15,7 @@ import { TrendingIcon } from './shared/TrendingIcon';
 interface BattingOrderCardProps {
   battingOrder: BattingOrderBatterSummary[];
   hotPlayers: number[];
+  coldPlayers: number[];
 }
 
 // Helper to format average
@@ -24,7 +25,11 @@ const formatAvg = (avg: number): string => {
   return avg.toFixed(3).substring(1); // Format as .XXX
 };
 
-export default function BattingOrderCard({ battingOrder, hotPlayers }: BattingOrderCardProps) {
+export default function BattingOrderCard({
+  battingOrder,
+  hotPlayers,
+  coldPlayers,
+}: BattingOrderCardProps) {
   return (
     <Stack spacing={3} padding={{ xs: 2, sm: 3 }}>
       <Typography variant="h5" gutterBottom>
@@ -56,6 +61,11 @@ export default function BattingOrderCard({ battingOrder, hotPlayers }: BattingOr
                   {hotPlayers.includes(batter.playerId) && (
                     <Box component="span" sx={{ pl: 0.25 }}>
                       🔥
+                    </Box>
+                  )}
+                  {coldPlayers.includes(batter.playerId) && (
+                    <Box component="span" sx={{ pl: 0.25 }}>
+                      ❄️
                     </Box>
                   )}
                 </TableCell>

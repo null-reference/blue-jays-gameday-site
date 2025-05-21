@@ -16,9 +16,10 @@ interface RankingsCardProps {
   title: string;
   data: RankedBatterStatSummary[]; // Use one type, they are structurally identical
   hotPlayers: number[];
+  coldPlayers: number[];
 }
 
-export default function RankingsCard({ title, data, hotPlayers }: RankingsCardProps) {
+export default function RankingsCard({ title, data, hotPlayers, coldPlayers }: RankingsCardProps) {
   // Filter out players with 0 in both L10 and Season for stolen bases
   const filteredData = title.toLowerCase().includes('stolen')
     ? data.filter((p) => p.statLast10 > 0 || p.statSeason > 0)
@@ -56,6 +57,11 @@ export default function RankingsCard({ title, data, hotPlayers }: RankingsCardPr
                   {hotPlayers.includes(player.playerId) && (
                     <Box component="span" sx={{ pl: 0.25 }}>
                       🔥
+                    </Box>
+                  )}
+                  {coldPlayers.includes(player.playerId) && (
+                    <Box component="span" sx={{ pl: 0.25 }}>
+                      ❄️
                     </Box>
                   )}
                 </TableCell>
