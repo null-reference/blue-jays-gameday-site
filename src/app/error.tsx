@@ -6,6 +6,7 @@ import { Logger } from '@/shared/logger';
 
 const logger = new Logger({
   prefix: 'error-page',
+  enabledInProd: true,
 });
 
 export default function Error({
