@@ -4,6 +4,7 @@ import * as React from 'react';
 import { Box, CircularProgress } from '@mui/material';
 import { GamedayReport as ApiGamedayReport } from '@/shared/gameday-api/types';
 import { Logger } from '@/shared/logger';
+import { withMinimumTime } from '@/shared/utils';
 import GamedayReport from './GamedayReport';
 import SpinningBaseball from './shared/SpinningBaseball';
 
@@ -20,7 +21,10 @@ export default function ClientGamedayReport() {
   React.useEffect(() => {
     startFetchReport(async () => {
       try {
-        const response = await fetch('/api/gameday-report');
+        // NOTE: forcing the api to wait N second(s) before returning response;
+        //       allows for the cool loading spinner to show up
+        // const response = await fetch('/api/gameday-report');
+        const response = await withMinimumTime(fetch('/api/gameday-report'), 1500);
         if (!response.ok) {
           throw new Error('Failed to fetch gameday report');
         }
