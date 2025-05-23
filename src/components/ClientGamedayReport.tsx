@@ -5,6 +5,7 @@ import { Box, CircularProgress } from '@mui/material';
 import { GamedayReport as ApiGamedayReport } from '@/shared/gameday-api/types';
 import { Logger } from '@/shared/logger';
 import GamedayReport from './GamedayReport';
+import SpinningBaseball from './shared/SpinningBaseball';
 
 const logger = new Logger({
   prefix: 'client-gameday-report',
@@ -35,7 +36,8 @@ export default function ClientGamedayReport() {
   if (isReportLoading) {
     return (
       <Box display="flex" justifyContent="center" alignItems="center" minHeight="50vh">
-        <CircularProgress size={60} thickness={4} />
+        <SpinningBaseball size={90} />
+        {/* <CircularProgress size={60} thickness={4} /> */}
       </Box>
     );
   }
