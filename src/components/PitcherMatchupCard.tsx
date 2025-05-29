@@ -1,6 +1,8 @@
 'use client';
 
 import * as React from 'react';
+import Image from 'next/image';
+import { Box, Stack } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -10,7 +12,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { GamedayReport } from '@/shared/gameday-api/types';
-import { Stack } from '@mui/material';
+import { getTeamLogo } from '@/shared/utils';
 
 interface PitcherMatchupCardProps {
   pitchers: GamedayReport['pitchers'];
@@ -63,7 +65,17 @@ export default function PitcherMatchupCard({ pitchers, gameInfo }: PitcherMatchu
             {pitcherData.map((pitcher) => (
               <TableRow key={pitcher.team}>
                 <TableCell component="th" scope="row">
-                  {pitcher.team}
+                  <Stack direction="row" alignItems="center" spacing={1}>
+                    <Image
+                      src={getTeamLogo(pitcher.team)}
+                      alt={gameInfo.awayTeam.name}
+                      width={24}
+                      height={24}
+                    />
+                    <Box component="span" sx={{ fontWeight: 'bold' }}>
+                      {pitcher.team}
+                    </Box>
+                  </Stack>
                 </TableCell>
                 <TableCell>{pitcher.name}</TableCell>
                 <TableCell align="right">{pitcher.record}</TableCell>
