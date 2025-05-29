@@ -52,8 +52,7 @@ export default function ClientGamedayReport() {
         display="flex"
         justifyContent="center"
         alignItems="center"
-        minHeight="50dvh" // for modern browsers
-        // minHeight=["50vh"]
+        minHeight="50vh"
         color="error.main"
         p={3}
         textAlign="center"
