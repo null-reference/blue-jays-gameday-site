@@ -8,6 +8,7 @@ import GameInfo from '@/components/GameInfo';
 import PitcherMatchupCard from '@/components/PitcherMatchupCard';
 import RankingsCard from '@/components/RankingsCard';
 import TeamStatsCard from '@/components/TeamStatsCard';
+import FadeInSection from '@/components/shared/FadeInSection';
 import { GamedayReport as ApiGamedayReport } from '@/shared/gameday-api/types';
 
 const FullWidthDivider = () => (
@@ -27,103 +28,133 @@ export default function GamedayReport({ report }: GamedayReportProps) {
 
   return (
     <Stack spacing={2} width="100%" paddingY={4}>
-      <GameInfo gameInfo={report.gameInfo} />
-      <FullWidthDivider />
+      <FadeInSection>
+        <GameInfo gameInfo={report.gameInfo} />
+        <FullWidthDivider />
+      </FadeInSection>
 
-      <TeamStatsCard teamStats={report.teamStats} />
-      <FullWidthDivider />
+      <FadeInSection delay={100}>
+        <TeamStatsCard teamStats={report.teamStats} />
+        <FullWidthDivider />
+      </FadeInSection>
 
-      <PitcherMatchupCard pitchers={report.pitchers} gameInfo={report.gameInfo} />
-      <FullWidthDivider />
+      <FadeInSection delay={200}>
+        <PitcherMatchupCard pitchers={report.pitchers} gameInfo={report.gameInfo} />
+        <FullWidthDivider />
+      </FadeInSection>
 
-      <BattingOrderCard
-        battingOrder={report.battingOrder}
-        hotPlayers={hotPlayers}
-        coldPlayers={coldPlayers}
-      />
-      <FullWidthDivider />
+      <FadeInSection delay={100}>
+        <BattingOrderCard
+          battingOrder={report.battingOrder}
+          hotPlayers={hotPlayers}
+          coldPlayers={coldPlayers}
+        />
+        <FullWidthDivider />
+      </FadeInSection>
 
-      <FirstPitchCard firstPitch={report.firstPitch} />
-      <FullWidthDivider />
+      <FadeInSection delay={100}>
+        <FirstPitchCard firstPitch={report.firstPitch} />
+        <FullWidthDivider />
+      </FadeInSection>
 
-      <RankingsCard
-        title="Homeruns"
-        data={report.rankings.homeruns}
-        hotPlayers={hotPlayers}
-        coldPlayers={coldPlayers}
-      />
-      <FullWidthDivider />
+      <FadeInSection delay={100}>
+        <RankingsCard
+          title="Homeruns"
+          data={report.rankings.homeruns}
+          hotPlayers={hotPlayers}
+          coldPlayers={coldPlayers}
+        />
+        <FullWidthDivider />
+      </FadeInSection>
 
-      <RankingsCard
-        title="Doubles"
-        data={report.rankings.doubles}
-        hotPlayers={hotPlayers}
-        coldPlayers={coldPlayers}
-      />
-      <FullWidthDivider />
+      <FadeInSection delay={100}>
+        <RankingsCard
+          title="Doubles"
+          data={report.rankings.doubles}
+          hotPlayers={hotPlayers}
+          coldPlayers={coldPlayers}
+        />
+        <FullWidthDivider />
+      </FadeInSection>
 
-      <RankingsCard
-        title="Triples"
-        data={report.rankings.triples}
-        hotPlayers={hotPlayers}
-        coldPlayers={coldPlayers}
-      />
-      <FullWidthDivider />
+      <FadeInSection delay={100}>
+        <RankingsCard
+          title="Triples"
+          data={report.rankings.triples}
+          hotPlayers={hotPlayers}
+          coldPlayers={coldPlayers}
+        />
+        <FullWidthDivider />
+      </FadeInSection>
 
-      <RankingsCard
-        title="Stolen Bases"
-        data={report.rankings.stolenBases}
-        hotPlayers={hotPlayers}
-        coldPlayers={coldPlayers}
-      />
-      <FullWidthDivider />
+      <FadeInSection delay={100}>
+        <RankingsCard
+          title="Stolen Bases"
+          data={report.rankings.stolenBases}
+          hotPlayers={hotPlayers}
+          coldPlayers={coldPlayers}
+        />
+        <FullWidthDivider />
+      </FadeInSection>
 
-      <RankingsCard
-        title="2+ RBI Games"
-        data={report.rankings.twoPlusRbiGames}
-        hotPlayers={hotPlayers}
-        coldPlayers={coldPlayers}
-      />
-      <FullWidthDivider />
+      <FadeInSection delay={100}>
+        <RankingsCard
+          title="2+ RBI Games"
+          data={report.rankings.twoPlusRbiGames}
+          hotPlayers={hotPlayers}
+          coldPlayers={coldPlayers}
+        />
+        <FullWidthDivider />
+      </FadeInSection>
 
-      <RankingsCard
-        title="3+ RBI Games"
-        data={report.rankings.threePlusRbiGames}
-        hotPlayers={hotPlayers}
-        coldPlayers={coldPlayers}
-      />
-      <FullWidthDivider />
+      <FadeInSection delay={100}>
+        <RankingsCard
+          title="3+ RBI Games"
+          data={report.rankings.threePlusRbiGames}
+          hotPlayers={hotPlayers}
+          coldPlayers={coldPlayers}
+        />
+        <FullWidthDivider />
+      </FadeInSection>
 
-      <RankingsCard
-        title="2+ Hit Games"
-        data={report.rankings.twoPlusHitGames}
-        hotPlayers={hotPlayers}
-        coldPlayers={coldPlayers}
-      />
-      <FullWidthDivider />
+      <FadeInSection delay={100}>
+        <RankingsCard
+          title="2+ Hit Games"
+          data={report.rankings.twoPlusHitGames}
+          hotPlayers={hotPlayers}
+          coldPlayers={coldPlayers}
+        />
+        <FullWidthDivider />
+      </FadeInSection>
 
-      <RankingsCard
-        title="3+ Hit Games"
-        data={report.rankings.threePlusHitGames}
-        hotPlayers={hotPlayers}
-        coldPlayers={coldPlayers}
-      />
-      <FullWidthDivider />
+      <FadeInSection delay={100}>
+        <RankingsCard
+          title="3+ Hit Games"
+          data={report.rankings.threePlusHitGames}
+          hotPlayers={hotPlayers}
+          coldPlayers={coldPlayers}
+        />
+        <FullWidthDivider />
+      </FadeInSection>
 
-      <RankingsCard
-        title="2+ Base Games"
-        data={report.rankings.twoPlusBaseGames}
-        hotPlayers={hotPlayers}
-        coldPlayers={coldPlayers}
-      />
-      <FullWidthDivider />
+      <FadeInSection delay={100}>
+        <RankingsCard
+          title="2+ Base Games"
+          data={report.rankings.twoPlusBaseGames}
+          hotPlayers={hotPlayers}
+          coldPlayers={coldPlayers}
+        />
+        <FullWidthDivider />
+      </FadeInSection>
 
-      <RankingsCard
-        title="3+ Base Games"
-        data={report.rankings.threePlusBaseGames}
-        hotPlayers={hotPlayers}
-        coldPlayers={coldPlayers}
-      />
+      <FadeInSection delay={100}>
+        <RankingsCard
+          title="3+ Base Games"
+          data={report.rankings.threePlusBaseGames}
+          hotPlayers={hotPlayers}
+          coldPlayers={coldPlayers}
+        />
+      </FadeInSection>
     </Stack>
   );
 }
