@@ -1,5 +1,6 @@
 import { Stack } from '@mui/material';
 import BlueJaysLogo from './shared/BlueJaysLogo';
+import FadeInSection from './shared/FadeInSection';
 import Page from './shared/Page';
 
 export default async function Layout({
@@ -17,7 +18,9 @@ export default async function Layout({
       paddingX={1}
       paddingY={3}
     >
-      <BlueJaysLogo />
+      <FadeInSection delay={100}>
+        <BlueJaysLogo />
+      </FadeInSection>
       <Page>{children}</Page>
     </Stack>
   );
