@@ -36,35 +36,30 @@ export default function ClientGamedayReport() {
       }
     });
   }, []);
+  return (
+    <>
+      {isReportLoading && (
+        <Box display="flex" justifyContent="center" alignItems="center" minHeight="50vh">
+          <SpinningBaseball size={90} />
+          {/* <CircularProgress size={60} thickness={4} /> */}
+        </Box>
+      )}
 
-  if (isReportLoading) {
-    return (
-      <Box display="flex" justifyContent="center" alignItems="center" minHeight="50vh">
-        <SpinningBaseball size={90} />
-        {/* <CircularProgress size={60} thickness={4} /> */}
-      </Box>
-    );
-  }
+      {error && (
+        <Box
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+          minHeight="50vh"
+          color="error.main"
+          p={3}
+          textAlign="center"
+        >
+          {error}
+        </Box>
+      )}
 
-  if (error) {
-    return (
-      <Box
-        display="flex"
-        justifyContent="center"
-        alignItems="center"
-        minHeight="50vh"
-        color="error.main"
-        p={3}
-        textAlign="center"
-      >
-        {error}
-      </Box>
-    );
-  }
-
-  if (!report) {
-    return null;
-  }
-
-  return <GamedayReport report={report} />;
+      {!isReportLoading && !error && report && <GamedayReport report={report} />}
+    </>
+  );
 }
