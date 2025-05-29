@@ -18,6 +18,11 @@ export default function ClientGamedayReport() {
   const [report, setReport] = React.useState<ApiGamedayReport | null>(null);
   const [error, setError] = React.useState<string | null>(null);
 
+  // Scroll to top immediately when component mounts
+  React.useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  }, []);
+
   React.useEffect(() => {
     startFetchReport(async () => {
       try {
