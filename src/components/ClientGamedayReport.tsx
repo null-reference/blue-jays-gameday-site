@@ -50,9 +50,9 @@ export default function ClientGamedayReport() {
           display="flex"
           justifyContent="center"
           alignItems="center"
-          minHeight="50vh"
           color="error.main"
-          p={3}
+          px={3}
+          py={5}
           textAlign="center"
         >
           {error}
