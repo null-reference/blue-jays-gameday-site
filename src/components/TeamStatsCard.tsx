@@ -19,10 +19,21 @@ interface TeamStatsCardProps {
   teamStats: GamedayReport['teamStats'];
 }
 
+const getGameDateString = (dateStr: string) => {
+  // return as "May 15"
+  const date = new Date(dateStr);
+  const options: Intl.DateTimeFormatOptions = {
+    month: 'short',
+    day: 'numeric',
+  };
+  return date.toLocaleDateString('en-US', options);
+};
+
 export default function TeamStatsCard({ teamStats }: TeamStatsCardProps) {
   // Prepare last 5 scores data for table
   const scoresData = teamStats.last5Scores.slice(0, 5).map((score, index) => ({
     game: index + 1,
+    gameDateStr: getGameDateString(score.gameDate),
     blueJaysScore: score.blueJaysScore,
     opponentScore: score.opponentScore,
     opponent: score.opponentAbbr,
@@ -58,7 +69,7 @@ export default function TeamStatsCard({ teamStats }: TeamStatsCardProps) {
             <TableHead>
               <TableRow>
                 <TableCell align="center" sx={{ fontWeight: 'bold' }}>
-                  Game
+                  Date
                 </TableCell>
                 <TableCell align="center" sx={{ fontWeight: 'bold' }}>
                   {teamStats.blueJaysAbbr}
@@ -72,7 +83,7 @@ export default function TeamStatsCard({ teamStats }: TeamStatsCardProps) {
             <TableBody>
               {scoresData.map((score) => (
                 <TableRow key={score.game}>
-                  <TableCell align="center">{score.game}</TableCell>
+                  <TableCell align="center">{score.gameDateStr}</TableCell>
                   <TableCell
                     align="center"
                     sx={{
