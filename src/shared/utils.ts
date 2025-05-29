@@ -61,6 +61,7 @@ export const getTeamLogo = (teamAbbr: string) => {
     case 'NYY':
       return '/team-logos/yankees-300x300.png';
     case 'OAK':
+    case 'ATH':
       return '/team-logos/athletics-300x300.png';
     case 'PHI':
       return '/team-logos/phillies-300x300.png';
