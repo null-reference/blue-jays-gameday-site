@@ -1,6 +1,7 @@
 'use client';
 
 import * as React from 'react';
+import Image from 'next/image';
 import Typography from '@mui/material/Typography';
 import {
   Table,
@@ -14,6 +15,7 @@ import {
   Stack,
 } from '@mui/material';
 import { GamedayReport } from '@/shared/gameday-api/types';
+import { getTeamLogo } from '@/shared/utils';
 
 interface TeamStatsCardProps {
   teamStats: GamedayReport['teamStats'];
@@ -94,7 +96,14 @@ export default function TeamStatsCard({ teamStats }: TeamStatsCardProps) {
                     {score.blueJaysScore}
                   </TableCell>
                   <TableCell align="center">{score.opponentScore}</TableCell>
-                  <TableCell>{score.opponent}</TableCell>
+                  <TableCell>
+                    <Image
+                      src={getTeamLogo(score.opponent)}
+                      alt={score.opponent}
+                      width={24}
+                      height={24}
+                    />
+                  </TableCell>
                 </TableRow>
               ))}
             </TableBody>
