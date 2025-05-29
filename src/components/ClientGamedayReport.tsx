@@ -39,7 +39,7 @@ export default function ClientGamedayReport() {
   return (
     <>
       {isReportLoading && (
-        <Box display="flex" justifyContent="center" alignItems="center">
+        <Box display="flex" justifyContent="center" alignItems="center" pt="10rem">
           <SpinningBaseball size={90} />
           {/* <CircularProgress size={60} thickness={4} /> */}
         </Box>
