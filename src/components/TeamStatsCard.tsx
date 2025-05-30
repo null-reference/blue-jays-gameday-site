@@ -116,7 +116,7 @@ export default function TeamStatsCard({ teamStats }: TeamStatsCardProps) {
                   {hasAnyIndicator && (
                     <TableCell
                       align="center"
-                      sx={{ fontSize: '1.1em', width: '20px', padding: '4px' }}
+                      sx={{ fontSize: '1.1em', width: '20px', py: '4px', pl: '6px', pr: '0px' }}
                     >
                       {score.indicator}
                     </TableCell>
