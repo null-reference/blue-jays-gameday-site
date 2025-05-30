@@ -73,7 +73,7 @@ export interface GamedayReport {
     isJaysHome: boolean;
   };
   venue: Venue;
-  parkFactorStats: ParkFactorStats | null;
+  parkFactor: ParkFactorStats | null;
   teamStats: {
     blueJaysAbbr: string;
     opponentAbbr: string;

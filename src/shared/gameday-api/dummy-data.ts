@@ -21,6 +21,23 @@ export const data: GamedayReport = {
     },
     isJaysHome: false,
   },
+  venue: {
+    id: 14,
+    name: 'Rogers Centre',
+  },
+  parkFactor: {
+    venueName: 'Rogers Centre',
+    parkFactor: 99,
+    runs: 98,
+    onBasePercentage: 99,
+    hits: 98,
+    singles: 96,
+    doubles: 107,
+    triples: 66,
+    homeRuns: 103,
+    walks: 99,
+    strikeouts: 99,
+  },
   teamStats: {
     blueJaysAbbr: 'TOR',
     opponentAbbr: 'LAA',
