@@ -17,72 +17,76 @@ export async function withMinimumTime<T>(promise: Promise<T>, minTimeMs: number)
   return result;
 }
 
-export const getTeamLogo = (teamAbbr: string) => {
+export type LogoSize = 64 | 300;
+
+export const getTeamLogo = (teamAbbr: string, logoSize: LogoSize = 64) => {
+  const sizeSuffix = logoSize === 300 ? '300x300' : '64x64';
+
   // NOTE: logos from -> https://loodibee.com/mlb/
   switch (teamAbbr) {
     case 'ARI':
-      return '/team-logos/diamondbacks-300x300.png';
+      return `/team-logos/diamondbacks-${sizeSuffix}.png`;
     case 'ATL':
-      return '/team-logos/braves-300x300.png';
+      return `/team-logos/braves-${sizeSuffix}.png`;
     case 'BAL':
-      return '/team-logos/orioles-300x300.png';
+      return `/team-logos/orioles-${sizeSuffix}.png`;
     case 'BOS':
-      return '/team-logos/redsox-300x300.png';
+      return `/team-logos/redsox-${sizeSuffix}.png`;
     case 'CHC':
-      return '/team-logos/cubs-300x300.png';
+      return `/team-logos/cubs-${sizeSuffix}.png`;
     case 'CHW':
     case 'CHS':
-      return '/team-logos/whitesox-300x300.png';
+      return `/team-logos/whitesox-${sizeSuffix}.png`;
     case 'CIN':
-      return '/team-logos/reds-300x300.png';
+      return `/team-logos/reds-${sizeSuffix}.png`;
     case 'CLE':
-      return '/team-logos/guardians-300x300.png';
+      return `/team-logos/guardians-${sizeSuffix}.png`;
     case 'COL':
-      return '/team-logos/rockies-300x300.png';
+      return `/team-logos/rockies-${sizeSuffix}.png`;
     case 'DET':
-      return '/team-logos/tigers-300x300.png';
+      return `/team-logos/tigers-${sizeSuffix}.png`;
     case 'FLA':
-      return '/team-logos/marlins-300x300.png';
+      return `/team-logos/marlins-${sizeSuffix}.png`;
     case 'HOU':
-      return '/team-logos/astros-300x300.png';
+      return `/team-logos/astros-${sizeSuffix}.png`;
     case 'KAN':
     case 'KCR':
-      return '/team-logos/royals-300x300.png';
+      return `/team-logos/royals-${sizeSuffix}.png`;
     case 'LAA':
-      return '/team-logos/angels-300x300.png';
+      return `/team-logos/angels-${sizeSuffix}.png`;
     case 'LAD':
-      return '/team-logos/dodgers-300x300.png';
+      return `/team-logos/dodgers-${sizeSuffix}.png`;
     case 'MIL':
-      return '/team-logos/brewers-300x300.png';
+      return `/team-logos/brewers-${sizeSuffix}.png`;
     case 'MIN':
-      return '/team-logos/twins-300x300.png';
+      return `/team-logos/twins-${sizeSuffix}.png`;
     case 'NYM':
-      return '/team-logos/mets-300x300.png';
+      return `/team-logos/mets-${sizeSuffix}.png`;
     case 'NYY':
-      return '/team-logos/yankees-300x300.png';
+      return `/team-logos/yankees-${sizeSuffix}.png`;
     case 'OAK':
     case 'ATH':
-      return '/team-logos/athletics-300x300.png';
+      return `/team-logos/athletics-${sizeSuffix}.png`;
     case 'PHI':
-      return '/team-logos/phillies-300x300.png';
+      return `/team-logos/phillies-${sizeSuffix}.png`;
     case 'PIT':
-      return '/team-logos/pirates-300x300.png';
+      return `/team-logos/pirates-${sizeSuffix}.png`;
     case 'SD':
-      return '/team-logos/padres-300x300.png';
+      return `/team-logos/padres-${sizeSuffix}.png`;
     case 'SF':
-      return '/team-logos/giants-300x300.png';
+      return `/team-logos/giants-${sizeSuffix}.png`;
     case 'SEA':
-      return '/team-logos/mariners-300x300.png';
+      return `/team-logos/mariners-${sizeSuffix}.png`;
     case 'STL':
-      return '/team-logos/cardinals-300x300.png';
+      return `/team-logos/cardinals-${sizeSuffix}.png`;
     case 'TB':
-      return '/team-logos/rays-300x300.png';
+      return `/team-logos/rays-${sizeSuffix}.png`;
     case 'TEX':
-      return '/team-logos/rangers-300x300.png';
+      return `/team-logos/rangers-${sizeSuffix}.png`;
     case 'TOR':
-      return '/team-logos/bluejays-300x300.png';
+      return `/team-logos/bluejays-${sizeSuffix}.png`;
     case 'WAS':
-      return '/team-logos/marlins-300x300.png';
+      return `/team-logos/marlins-${sizeSuffix}.png`;
   }
-  return '/team-logos/mlb-300x300.png';
+  return `/team-logos/mlb-${sizeSuffix}.png`;
 };

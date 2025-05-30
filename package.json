@@ -6,7 +6,8 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "resize-logos": "ts-node --project scripts/tsconfig.json scripts/resize-logos/index.ts"
   },
   "dependencies": {
     "@emotion/cache": "^11.14.0",
@@ -23,9 +24,12 @@
     "@types/node": "^20",
     "@types/react": "19.0.12",
     "@types/react-dom": "19.0.4",
+    "@types/sharp": "^0.31.1",
     "eslint": "^8",
     "eslint-config-next": "15.2.4",
     "eslint-config-prettier": "^9.1.0",
+    "sharp": "^0.34.2",
+    "ts-node": "^10.9.2",
     "typescript": "^5"
   },
   "overrides": {
