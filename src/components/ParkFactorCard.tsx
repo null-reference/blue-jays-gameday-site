@@ -24,7 +24,8 @@ export default function ParkFactorCard({ parkFactor }: ParkFactorCardProps) {
   // Helper function to get color based on park factor value
   const getValueColor = (value: number) => {
     if (value > 100) return 'green';
-    if (value < 100) return 'red';
+    if (value < 95) return 'red';
+    if (value < 100) return 'darkorange';
     return 'black';
   };
 
