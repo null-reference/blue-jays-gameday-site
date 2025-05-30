@@ -5,6 +5,7 @@ import { Divider, Stack } from '@mui/material';
 import BattingOrderCard from '@/components/BattingOrderCard';
 import FirstPitchCard from '@/components/FirstPitchCard';
 import GameInfo from '@/components/GameInfo';
+import ParkFactorCard from '@/components/ParkFactorCard';
 import PitcherMatchupCard from '@/components/PitcherMatchupCard';
 import RankingsCard from '@/components/RankingsCard';
 import TeamStatsCard from '@/components/TeamStatsCard';
@@ -25,6 +26,11 @@ export default function GamedayReport({ report }: GamedayReportProps) {
 
   const hotPlayers = report.hotPlayers.map((player) => player.playerId);
   const coldPlayers = report.coldPlayers.map((player) => player.playerId);
+
+  // Filter out players with 0 in both L10 and Season for stolen bases
+  const stolenBaseReportData = report.rankings.stolenBases.filter(
+    (p) => p.statLast10 > 0 || p.statSeason > 0,
+  );
 
   return (
     <Stack spacing={2} width="100%" paddingY={4}>
@@ -58,11 +64,17 @@ export default function GamedayReport({ report }: GamedayReportProps) {
       </FadeInSection>
 
       <FadeInSection delay={100}>
+        <ParkFactorCard parkFactor={report.parkFactor} />
+        <FullWidthDivider />
+      </FadeInSection>
+
+      <FadeInSection delay={100}>
         <RankingsCard
           title="Homeruns"
           data={report.rankings.homeruns}
           hotPlayers={hotPlayers}
           coldPlayers={coldPlayers}
+          parkFactorStatValue={report.parkFactor?.homeRuns}
         />
         <FullWidthDivider />
       </FadeInSection>
@@ -73,6 +85,7 @@ export default function GamedayReport({ report }: GamedayReportProps) {
           data={report.rankings.doubles}
           hotPlayers={hotPlayers}
           coldPlayers={coldPlayers}
+          parkFactorStatValue={report.parkFactor?.doubles}
         />
         <FullWidthDivider />
       </FadeInSection>
@@ -83,6 +96,7 @@ export default function GamedayReport({ report }: GamedayReportProps) {
           data={report.rankings.triples}
           hotPlayers={hotPlayers}
           coldPlayers={coldPlayers}
+          parkFactorStatValue={report.parkFactor?.triples}
         />
         <FullWidthDivider />
       </FadeInSection>
@@ -90,7 +104,7 @@ export default function GamedayReport({ report }: GamedayReportProps) {
       <FadeInSection delay={100}>
         <RankingsCard
           title="Stolen Bases"
-          data={report.rankings.stolenBases}
+          data={stolenBaseReportData}
           hotPlayers={hotPlayers}
           coldPlayers={coldPlayers}
         />
@@ -103,6 +117,7 @@ export default function GamedayReport({ report }: GamedayReportProps) {
           data={report.rankings.twoPlusRbiGames}
           hotPlayers={hotPlayers}
           coldPlayers={coldPlayers}
+          parkFactorStatValue={report.parkFactor?.runs}
         />
         <FullWidthDivider />
       </FadeInSection>
@@ -113,6 +128,7 @@ export default function GamedayReport({ report }: GamedayReportProps) {
           data={report.rankings.threePlusRbiGames}
           hotPlayers={hotPlayers}
           coldPlayers={coldPlayers}
+          parkFactorStatValue={report.parkFactor?.runs}
         />
         <FullWidthDivider />
       </FadeInSection>
@@ -123,6 +139,7 @@ export default function GamedayReport({ report }: GamedayReportProps) {
           data={report.rankings.twoPlusHitGames}
           hotPlayers={hotPlayers}
           coldPlayers={coldPlayers}
+          parkFactorStatValue={report.parkFactor?.hits}
         />
         <FullWidthDivider />
       </FadeInSection>
@@ -133,6 +150,7 @@ export default function GamedayReport({ report }: GamedayReportProps) {
           data={report.rankings.threePlusHitGames}
           hotPlayers={hotPlayers}
           coldPlayers={coldPlayers}
+          parkFactorStatValue={report.parkFactor?.hits}
         />
         <FullWidthDivider />
       </FadeInSection>

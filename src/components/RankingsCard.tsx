@@ -9,7 +9,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { RankedBatterStatSummary } from '@/shared/gameday-api/types';
+import { ParkFactorStats, RankedBatterStatSummary } from '@/shared/gameday-api/types';
 import { TrendingIcon } from './shared/TrendingIcon';
 
 interface RankingsCardProps {
@@ -17,26 +17,35 @@ interface RankingsCardProps {
   data: RankedBatterStatSummary[]; // Use one type, they are structurally identical
   hotPlayers: number[];
   coldPlayers: number[];
+  parkFactorStatValue?: number;
 }
 
-export default function RankingsCard({ title, data, hotPlayers, coldPlayers }: RankingsCardProps) {
-  // Filter out players with 0 in both L10 and Season for stolen bases
-  const filteredData = title.toLowerCase().includes('stolen')
-    ? data.filter((p) => p.statLast10 > 0 || p.statSeason > 0)
-    : data;
-
-  // Don't render card if no data after filtering
-  if (filteredData.length === 0) {
+export default function RankingsCard({
+  title,
+  data,
+  hotPlayers,
+  coldPlayers,
+  parkFactorStatValue,
+}: RankingsCardProps) {
+  // Don't render card if no data
+  if (data.length === 0) {
     return null;
   }
 
   const isHotPlayer = (playerId: number) => hotPlayers.includes(playerId);
   const isColdPlayer = (playerId: number) => coldPlayers.includes(playerId);
 
+  const parkFactorStatValueText = parkFactorStatValue ? `PF-${parkFactorStatValue}` : '';
+
   return (
     <Stack spacing={3} padding={{ xs: 2, sm: 3 }}>
       <Typography variant="h5" gutterBottom>
-        {title}
+        <Stack direction="row" spacing={1} alignItems="center" justifyContent="space-between">
+          <Box component="span">{title}</Box>
+          {parkFactorStatValue && parkFactorStatValue > 0 ? (
+            <Box component="span">{parkFactorStatValueText}</Box>
+          ) : null}
+        </Stack>
       </Typography>
 
       <TableContainer component={Paper} elevation={0}>
@@ -53,7 +62,7 @@ export default function RankingsCard({ title, data, hotPlayers, coldPlayers }: R
             </TableRow>
           </TableHead>
           <TableBody>
-            {filteredData.map((player) => (
+            {data.map((player) => (
               <TableRow key={player.lastName}>
                 <TableCell component="th" scope="row">
                   {player.lastName}
