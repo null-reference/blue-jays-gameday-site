@@ -43,6 +43,25 @@ export interface RankedBatterStatSummary {
   trending: 'up' | 'down' | 'neutral';
 }
 
+export interface Venue {
+  id: number;
+  name: string;
+}
+
+export interface ParkFactorStats {
+  venueName: string;
+  parkFactor: number;
+  runs: number;
+  onBasePercentage: number;
+  hits: number;
+  singles: number;
+  doubles: number;
+  triples: number;
+  homeRuns: number;
+  walks: number;
+  strikeouts: number;
+}
+
 // The main summary object structure
 export interface GamedayReport {
   gameInfo: {
@@ -53,6 +72,8 @@ export interface GamedayReport {
     awayTeam: TeamSummary;
     isJaysHome: boolean;
   };
+  venue: Venue;
+  parkFactorStats: ParkFactorStats | null;
   teamStats: {
     blueJaysAbbr: string;
     opponentAbbr: string;
