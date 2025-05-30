@@ -13,6 +13,7 @@ import {
   Paper,
   Divider,
   Stack,
+  Box,
 } from '@mui/material';
 import { GamedayReport } from '@/shared/gameday-api/types';
 import { getTeamLogo } from '@/shared/utils';
@@ -31,6 +32,21 @@ const getGameDateString = (dateStr: string) => {
   return date.toLocaleDateString('en-US', options);
 };
 
+const getGameIndicator = (blueJaysScore: number, opponentScore: number) => {
+  const scoreDiff = blueJaysScore - opponentScore;
+
+  if (scoreDiff >= 8) {
+    return '🦍'; // Big win (8+ runs)
+  } else if (scoreDiff >= 5) {
+    return '💪'; // Good win (5-7 runs)
+  } else if (scoreDiff <= -8) {
+    return '💔'; // Big loss (8+ runs)
+  } else if (scoreDiff <= -5) {
+    return '🤦‍♂️'; // Bad loss (5-7 runs)
+  }
+  return null; // Close game, no indicator
+};
+
 export default function TeamStatsCard({ teamStats }: TeamStatsCardProps) {
   // Prepare last 5 scores data for table
   const scoresData = teamStats.last5Scores.slice(0, 5).map((score, index) => ({
@@ -40,7 +56,12 @@ export default function TeamStatsCard({ teamStats }: TeamStatsCardProps) {
     opponentScore: score.opponentScore,
     opponent: score.opponentAbbr,
     result: score.blueJaysScore > score.opponentScore ? 'W' : 'L',
+    indicator: getGameIndicator(score.blueJaysScore, score.opponentScore),
+    scoreDiff: Math.abs(score.blueJaysScore - score.opponentScore),
   }));
+
+  // Check if any row has an indicator to determine if we should show the indicator column
+  const hasAnyIndicator = scoresData.some((score) => score.indicator);
 
   // Prepare average scores data for table
   const avgScoresData = [
@@ -68,8 +89,15 @@ export default function TeamStatsCard({ teamStats }: TeamStatsCardProps) {
         </Typography>
         <TableContainer component={Paper} elevation={0}>
           <Table size="small" aria-label="last 5 scores">
+            {' '}
             <TableHead>
               <TableRow>
+                {hasAnyIndicator && (
+                  <TableCell
+                    align="center"
+                    sx={{ fontWeight: 'bold', width: '20px', padding: '4px' }}
+                  ></TableCell>
+                )}
                 <TableCell align="center" sx={{ fontWeight: 'bold' }}>
                   Date
                 </TableCell>
@@ -81,10 +109,18 @@ export default function TeamStatsCard({ teamStats }: TeamStatsCardProps) {
                 </TableCell>
                 <TableCell sx={{ fontWeight: 'bold' }}>VS</TableCell>
               </TableRow>
-            </TableHead>
+            </TableHead>{' '}
             <TableBody>
               {scoresData.map((score) => (
                 <TableRow key={score.game}>
+                  {hasAnyIndicator && (
+                    <TableCell
+                      align="center"
+                      sx={{ fontSize: '1.1em', width: '20px', padding: '4px' }}
+                    >
+                      {score.indicator}
+                    </TableCell>
+                  )}
                   <TableCell align="center">{score.gameDateStr}</TableCell>
                   <TableCell
                     align="center"
@@ -97,12 +133,14 @@ export default function TeamStatsCard({ teamStats }: TeamStatsCardProps) {
                   </TableCell>
                   <TableCell align="center">{score.opponentScore}</TableCell>
                   <TableCell>
-                    <Image
-                      src={getTeamLogo(score.opponent)}
-                      alt={score.opponent}
-                      width={24}
-                      height={24}
-                    />
+                    <Box display="flex" flexDirection="row" alignItems="center">
+                      <Image
+                        src={getTeamLogo(score.opponent)}
+                        alt={score.opponent}
+                        width={24}
+                        height={24}
+                      />
+                    </Box>
                   </TableCell>
                 </TableRow>
               ))}
